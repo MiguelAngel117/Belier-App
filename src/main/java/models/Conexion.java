@@ -19,7 +19,7 @@ public class Conexion {
     String base = "belier"; 
     String url = "jdbc:mysql://localhost:3306/" + base; 
     String user = "root"; 
-    String password = "strange2404";
+    String password = "admin";
 
     public Connection getConexion() {
         try {
