@@ -32,6 +32,7 @@ public class JPanelLogin extends javax.swing.JPanel {
         this.user = "ADMIN";
         this.password = "Belier2";
         jLabelDesc1.setVisible(false);
+        
     }
 
     /**
