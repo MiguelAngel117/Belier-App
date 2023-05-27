@@ -418,6 +418,7 @@ public class JPanelLogin extends javax.swing.JPanel {
                 this.add(jPanelMain, BorderLayout.CENTER);
                 this.revalidate();
                 this.repaint();
+                
                 isValid = false;
             }
         }
