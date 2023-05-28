@@ -2,6 +2,11 @@ package views;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.UIManager;
 import models.Service;
 import views.panels.*;
@@ -28,7 +33,7 @@ public class JFrameMain extends javax.swing.JFrame {
         this.setBackground(new Color(244, 225, 208));
         initLogin();
     }
-
+        
     public void initLogin() {
         JPanelLogin jPanelLogin = new JPanelLogin(this);
         jPanelLogin.setLocation(0, 0);
@@ -47,6 +52,8 @@ public class JFrameMain extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
