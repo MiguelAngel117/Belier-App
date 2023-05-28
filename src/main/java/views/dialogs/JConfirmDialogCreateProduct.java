@@ -4,7 +4,9 @@
  */
 package views.dialogs;
 
+import java.awt.Color;
 import java.awt.Frame;
+import javax.swing.BorderFactory;
 import models.Garment;
 import models.GarmentCRUD;
 import models.TypeCRUD;
@@ -137,6 +139,10 @@ public class JConfirmDialogCreateProduct extends javax.swing.JDialog {
             jPanelRegisterArticle.getjTextArea1().setText("");
             jPanelRegisterArticle.getjTextField1().setText("0");
             jPanelRegisterArticle.getjTextField4().setText("");
+            
+            jPanelRegisterArticle.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+            jPanelRegisterArticle.getjTextField4().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+            jPanelRegisterArticle.getjTextArea1().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         }
 
         this.dispose();

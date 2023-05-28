@@ -4,7 +4,9 @@
  */
 package views.dialogs;
 
+import java.awt.Color;
 import java.awt.Frame;
+import javax.swing.BorderFactory;
 import models.Garment;
 import models.GarmentCRUD;
 import models.Service;
@@ -133,6 +135,10 @@ public class JConfirmDialogUpdateProductByCode extends javax.swing.JDialog {
             jPanelUpdateArticleByCode.getjTextField3().setText("0");
             jPanelUpdateArticleByCode.getjTextField4().setText("");
             jPanelUpdateArticleByCode.getjTextArea1().setText("");
+            
+            jPanelUpdateArticleByCode.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+            jPanelUpdateArticleByCode.getjTextField4().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+            jPanelUpdateArticleByCode.getjTextArea1().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

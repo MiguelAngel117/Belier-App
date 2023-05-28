@@ -131,6 +131,7 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
         jLabelPriceSale.setText("Precio de Venta");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField1.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField1.setMaximumSize(new java.awt.Dimension(64, 28));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,10 +148,16 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
         });
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField2.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField2.setMaximumSize(new java.awt.Dimension(64, 28));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
+            }
+        });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
             }
         });
 
@@ -163,6 +170,12 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -170,10 +183,16 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
         jLabel8.setText("Nombre");
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField4.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField4.setMaximumSize(new java.awt.Dimension(64, 28));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
+            }
+        });
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
             }
         });
 
@@ -335,6 +354,11 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        showIsEmpty(jTextField1);
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField4);
+        showIsEmptyJA(jTextArea1);
+        
         if (!jTextField1.getText().isEmpty()) {
             try {
                 new BigInteger(jTextField1.getText());
@@ -444,6 +468,27 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         jButton1.setBackground(new Color(54,125,86));    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        showIsEmpty(jTextField1);
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField4);
+        showIsEmptyJA(jTextArea1);
+    }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        showIsEmpty(jTextField1);
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField4);
+        showIsEmptyJA(jTextArea1);
+    }//GEN-LAST:event_jTextField4KeyReleased
+
+    private void jTextArea1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyReleased
+        showIsEmpty(jTextField1);
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField4);
+        showIsEmptyJA(jTextArea1);
+    }//GEN-LAST:event_jTextArea1KeyReleased
 
     public JLabel getjLabelDesc1() {
         return jLabelDesc1;

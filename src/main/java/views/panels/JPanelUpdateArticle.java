@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -171,6 +172,11 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -178,6 +184,11 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
         jLabel8.setText("Nombre");
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
+            }
+        });
 
         jToggleButtonBack.setBackground(new java.awt.Color(97, 136, 176));
         jToggleButtonBack.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -527,6 +538,35 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
             jcd.setVisible(true);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+    
+    public void showIsEmpty(JTextField jTextField){
+        if(jTextField.getText().isEmpty()){
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+        }
+        else{
+            jTextField.setBorder(null);
+        }
+    }
+    public void showIsEmptyJA(JTextArea jTextField){
+        if(jTextField.getText().isEmpty()){
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+        }
+        else{
+            jTextField.setBorder(null);
+        }
+    }
+    
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        showIsEmpty(jTextField1);
+        showIsEmpty(jTextField4);
+        showIsEmptyJA(jTextArea1);
+    }//GEN-LAST:event_jTextField4KeyReleased
+
+    private void jTextArea1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyReleased
+        showIsEmpty(jTextField1);
+        showIsEmpty(jTextField4);
+        showIsEmptyJA(jTextArea1);
+    }//GEN-LAST:event_jTextArea1KeyReleased
 
     public JComboBox<String> getjComboBox1() {
         return jComboBox1;
