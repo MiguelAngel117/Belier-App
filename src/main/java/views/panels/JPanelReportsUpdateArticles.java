@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import models.Garment;
 import models.GarmentCRUD;
@@ -20,9 +21,10 @@ import views.JFrameMain;
  * @author USER
  */
 public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
-    
+
     private JFrameMain jFrameMain;
     private final JPanelMain jpanelMain;
+
     /**
      * Creates new form JPanelArticle
      */
@@ -30,8 +32,13 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
         this.jFrameMain = jFrameMain;
         this.jpanelMain = jpanelMain;
         initComponents();
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        renderer.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 0, 0, java.awt.Color.GRAY));
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(java.awt.Color.GRAY);
+        jTable1.setDefaultRenderer(Object.class, renderer);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,16 +192,16 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButtonBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonBackMouseEntered
-        jToggleButtonBack.setBackground(new Color(52,73,94));
+        jToggleButtonBack.setBackground(new Color(52, 73, 94));
     }//GEN-LAST:event_jToggleButtonBackMouseEntered
 
     private void jToggleButtonBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonBackMouseExited
-        jToggleButtonBack.setBackground(new Color(97,136,176));
+        jToggleButtonBack.setBackground(new Color(97, 136, 176));
     }//GEN-LAST:event_jToggleButtonBackMouseExited
 
     private void jToggleButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonBackActionPerformed
         JPanelReports jPanelReports = new JPanelReports(jFrameMain, jpanelMain);
-        jPanelReports.setLocation(0,0);
+        jPanelReports.setLocation(0, 0);
         jPanelReports.setSize(this.getSize());
         this.removeAll();
         this.add(jPanelReports, BorderLayout.CENTER);
@@ -206,9 +213,9 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
         if (evt.getClickCount() == 2) {
             int row = jTable1.getSelectedRow();
             int column = jTable1.getSelectedColumn();
-            String value = jTable1.getValueAt(row, 0).toString(); 
+            String value = jTable1.getValueAt(row, 0).toString();
             System.out.println("Valor de la celda: " + value);
-            
+
             JPanelUpdateArticle jpua = new JPanelUpdateArticle(jFrameMain, jFrameMain, jpanelMain);
             jpanelMain.initPanel(jpua);
             TypeCRUD tcrud = new TypeCRUD();
@@ -218,14 +225,14 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelArticle.class.getName()).log(Level.SEVERE, null, ex);
             }
-            for(int i = 0; i < types.size(); i++) {
+            for (int i = 0; i < types.size(); i++) {
                 jpua.getjComboBox2().addItem(types.get(i).getName());
             }
 
             jpua.getjComboBox1().addItem("MASCULINO");
             jpua.getjComboBox1().addItem("FEMENINO");
             jpua.getjComboBox1().addItem("UNISEX");
-            
+
             GarmentCRUD gcrud = new GarmentCRUD();
             Service s = new Service();
             Garment garment = null;
@@ -244,31 +251,30 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
             jpua.getjTextArea1().setLineWrap(true);
             jpua.getjTextArea1().setWrapStyleWord(true);
         }
-                       
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        
+
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        
+
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         ArrayList<Garment> garments = new ArrayList<>();
         try {
-            if(!jTextField1.getText().isEmpty()){
+            if (!jTextField1.getText().isEmpty()) {
                 garments = new GarmentCRUD().searchGarments(jTextField1.getText().toUpperCase());
-            }
-            else{
+            } else {
                 garments = new GarmentCRUD().getGarments();
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPanelReports.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        DefaultTableModel defaultTableModel = new DefaultTableModel(){
+
+        DefaultTableModel defaultTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -295,7 +301,7 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
             row[7] = garment.getStock();
             defaultTableModel.addRow(row);
         }
-        
+
         jTable1.setModel(defaultTableModel);
     }//GEN-LAST:event_jTextField1KeyReleased
 
@@ -306,7 +312,7 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
     public void setjTable1(JTable jTable1) {
         this.jTable1 = jTable1;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

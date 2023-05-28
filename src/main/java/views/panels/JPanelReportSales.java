@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import models.Garment;
 import models.GarmentCRUD;
@@ -30,6 +31,11 @@ public class JPanelReportSales extends javax.swing.JPanel {
         this.jFrameMain = jFrameMain;
         this.jpanelMain = jPanelMain;
         initComponents();
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        renderer.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 0, 0, java.awt.Color.GRAY));
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(java.awt.Color.GRAY);
+        jTable1.setDefaultRenderer(Object.class, renderer);
     }
 
     /**
