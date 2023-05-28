@@ -398,17 +398,17 @@ public class JPanelLogin extends javax.swing.JPanel {
                 isValid = false;
                 jLabelDesc1.setText(" Ingrese un usuario.");
                 jLabelDesc1.setVisible(true);
-            } else if (!jTextFieldNombreUsuario1.getText().toUpperCase().equals(user)) {
-                isValid = false;
-                jLabelDesc1.setText(" Usuario ingresado incorrecto.");
-                jLabelDesc1.setVisible(true);
             } else if (jPasswordFieldContraseña1.getText().length() == 0) {
                 isValid = false;
                 jLabelDesc1.setText(" Ingrese una contraseña.");
                 jLabelDesc1.setVisible(true);
-            } else if (!jPasswordFieldContraseña1.getText().equals(password)) {
+            }else if (!jTextFieldNombreUsuario1.getText().toUpperCase().equals(user)) {
                 isValid = false;
-                jLabelDesc1.setText(" Contraseña ingresada incorrecta.");
+                jLabelDesc1.setText(" Usuario ingresado incorrecto.");
+                jLabelDesc1.setVisible(true);
+            }  else if (!jPasswordFieldContraseña1.getText().equals(password)) {
+                isValid = false;
+                jLabelDesc1.setText(" Contraseña incorrecta.");
                 jLabelDesc1.setVisible(true);
             } else {
                 jLabelDesc1.setVisible(false);
