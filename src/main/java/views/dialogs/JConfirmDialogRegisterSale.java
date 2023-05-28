@@ -4,10 +4,12 @@
  */
 package views.dialogs;
 
+import java.awt.Color;
 import java.awt.Frame;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import models.Sale;
 import models.SaleCRUD;
 import models.Service;
@@ -138,6 +140,8 @@ public class JConfirmDialogRegisterSale extends javax.swing.JDialog {
             jPanelRegisterSale.getjTextField4().setText("");
             jPanelRegisterSale.getjTextField7().setText("");
             jPanelRegisterSale.getjComboBox1().removeAllItems();
+            
+            jPanelRegisterSale.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
 
         }
 

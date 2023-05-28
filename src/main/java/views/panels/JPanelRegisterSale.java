@@ -7,6 +7,7 @@ import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -110,6 +111,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
         });
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField2.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -118,6 +120,9 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
             }
         });
 
@@ -339,7 +344,16 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
             return false;
         }
     }
-
+    
+    public void showIsEmpty(JTextField jTextField){
+        if(jTextField.getText().isEmpty()){
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+        }
+        else{
+            jTextField.setBorder(null);
+        }
+    }
+    
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
 
     }//GEN-LAST:event_jTextField1KeyPressed
@@ -487,6 +501,10 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
             Logger.getLogger(JPanelUpdateArticle.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        showIsEmpty(jTextField2);
+    }//GEN-LAST:event_jTextField2KeyReleased
 
     public JLabel getjLabel1() {
         return jLabel1;

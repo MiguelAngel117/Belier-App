@@ -4,10 +4,12 @@
  */
 package views.dialogs;
 
+import java.awt.Color;
 import java.awt.Frame;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import models.Purchase;
 import models.PurchaseCRUD;
 import models.Service;
@@ -139,6 +141,8 @@ public class JConfirmDialogCreatePurch extends javax.swing.JDialog {
             jPanelRegisterBuy.getjTextField5().setText("");
             jPanelRegisterBuy.getjTextField7().setText("");
             jPanelRegisterBuy.getjTextField8().setText("");
+            
+            jPanelRegisterBuy.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

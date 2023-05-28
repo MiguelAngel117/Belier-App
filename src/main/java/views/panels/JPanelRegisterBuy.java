@@ -7,6 +7,7 @@ import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -146,6 +147,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField2.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -155,9 +157,13 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
         });
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField3.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField3KeyPressed(evt);
@@ -171,6 +177,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
         });
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField4.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -361,12 +368,23 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             .addComponent(jPanelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public void showIsEmpty(JTextField jTextField){
+        if(jTextField.getText().isEmpty()){
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+        }
+        else{
+            jTextField.setBorder(null);
+        }
+    }
+    
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         calculate();
     }//GEN-LAST:event_jTextField4KeyTyped
 
     private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField3);
+        showIsEmpty(jTextField4);
         calculate();
 
 
@@ -420,6 +438,11 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField3);
+        showIsEmpty(jTextField4);
+        
         calculate();
 
 
@@ -552,6 +575,12 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             jcdcp.setVisible(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField3);
+        showIsEmpty(jTextField4);
+    }//GEN-LAST:event_jTextField2KeyReleased
 
     public void calculate() {
         try {
