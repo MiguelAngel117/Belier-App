@@ -439,4 +439,8 @@ public class JPanelMain extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     private JFrameMain frameMain;
     private Service service;
+
+    public JButton getjButtonMain() {
+       return jButtonMain;
+    }
 }
