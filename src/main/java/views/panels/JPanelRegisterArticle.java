@@ -10,6 +10,7 @@ import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -358,8 +359,30 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    
+    public void showIsEmpty(JTextField jTextField){
+        if(jTextField.getText().isEmpty()){
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+        }
+        else{
+            jTextField.setBorder(null);
+        }
+    }
+    public void showIsEmptyJA(JTextArea jTextField){
+        if(jTextField.getText().isEmpty()){
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+        }
+        else{
+            jTextField.setBorder(null);
+        }
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        showIsEmpty(jTextField1);
+        showIsEmpty(jTextField2);
+        showIsEmpty(jTextField4);
+        showIsEmptyJA(jTextArea1);
+        
         Service s = new Service(jFrameMain);
         TypeCRUD tcrud = new TypeCRUD();
         boolean isValid = false;

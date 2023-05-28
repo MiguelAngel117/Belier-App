@@ -154,7 +154,7 @@
               <Color blue="d0" green="e1" red="f4" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="ACTUALIZAR PRODUCTO"/>
+            <Property name="text" type="java.lang.String" value="MODIFICAR PRODUCTO"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>

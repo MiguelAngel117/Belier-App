@@ -7,6 +7,7 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import models.Service;
 import views.panels.*;
@@ -21,7 +22,7 @@ public class JFrameMain extends javax.swing.JFrame {
      * Creates new form JFrameMain
      */
     public JFrameMain() {
-
+        this.setIconImage(new ImageIcon(getClass().getResource("/icono.png")).getImage());
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception ex) {

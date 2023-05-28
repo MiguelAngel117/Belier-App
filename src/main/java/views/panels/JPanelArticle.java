@@ -79,7 +79,7 @@ public class JPanelArticle extends javax.swing.JPanel {
         jToggleButtonUpdate.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jToggleButtonUpdate.setForeground(new java.awt.Color(244, 225, 208));
         jToggleButtonUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.png"))); // NOI18N
-        jToggleButtonUpdate.setText(" ACTUALIZAR ");
+        jToggleButtonUpdate.setText(" MODIFICAR ");
         jToggleButtonUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jToggleButtonUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -100,14 +100,14 @@ public class JPanelArticle extends javax.swing.JPanel {
         jPanelBackgroundLayout.setHorizontalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackgroundLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabelTittle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelBackgroundLayout.createSequentialGroup()
                         .addComponent(jToggleButtonRegister)
                         .addGap(18, 18, 18)
                         .addComponent(jToggleButtonUpdate)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanelBackgroundLayout.setVerticalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

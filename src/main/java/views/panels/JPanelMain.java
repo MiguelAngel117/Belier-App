@@ -40,6 +40,10 @@ public class JPanelMain extends javax.swing.JPanel {
         jPanelContent.repaint();
     }
 
+    public JButton getjButtonMain() {
+        return jButtonMain;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,8 +66,8 @@ public class JPanelMain extends javax.swing.JPanel {
         jLabelDate = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jPanelContent = new javax.swing.JPanel();
+        jLabelTittle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         backgroundPanel.setBackground(new java.awt.Color(255, 102, 0));
 
@@ -263,31 +267,37 @@ public class JPanelMain extends javax.swing.JPanel {
 
         jPanelContent.setBackground(new java.awt.Color(244, 225, 208));
 
+        jLabelTittle.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelTittle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabelTittle.setForeground(new java.awt.Color(244, 225, 208));
+        jLabelTittle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTittle.setText("BIENVENIDO AL SISTEMA DE INFORMACIÓN");
+        jLabelTittle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelTittle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelTittle.setOpaque(true);
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/belier_icon_main-removebg-final1.png"))); // NOI18N
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5fd6c44a7e43a9b105c99ddb62603ffc.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanelContentLayout = new javax.swing.GroupLayout(jPanelContent);
         jPanelContent.setLayout(jPanelContentLayout);
         jPanelContentLayout.setHorizontalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContentLayout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addComponent(jLabelTittle, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanelContentLayout.setVerticalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContentLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(jLabelTittle, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
@@ -429,10 +439,10 @@ public class JPanelMain extends javax.swing.JPanel {
     private javax.swing.JButton jButtonMain;
     private javax.swing.JButton jButtonReport;
     private javax.swing.JButton jButtonSale;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelDate;
     private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel jLabelTittle;
     private javax.swing.JPanel jPanelContent;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelMenu;
@@ -440,7 +450,5 @@ public class JPanelMain extends javax.swing.JPanel {
     private JFrameMain frameMain;
     private Service service;
 
-    public JButton getjButtonMain() {
-       return jButtonMain;
-    }
+    
 }
