@@ -50,7 +50,7 @@ public class JPanelArticle extends javax.swing.JPanel {
         jLabelTittle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTittle.setForeground(new java.awt.Color(244, 225, 208));
         jLabelTittle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTittle.setText("GESTOR DE ARTICULOS");
+        jLabelTittle.setText("GESTOR DE PRODUCTOS");
         jLabelTittle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabelTittle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelTittle.setOpaque(true);

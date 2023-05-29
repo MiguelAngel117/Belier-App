@@ -217,13 +217,12 @@ public class JPanelMain extends javax.swing.JPanel {
         jLabelDate.setForeground(new java.awt.Color(244, 225, 208));
         jLabelDate.setText("Fecha");
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(0, 51, 102));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close4.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("SALIR");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setOpaque(true);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -249,7 +248,7 @@ public class JPanelMain extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2)
                 .addGap(19, 19, 19))
         );
         jPanelHeaderLayout.setVerticalGroup(
@@ -365,11 +364,11 @@ public class JPanelMain extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close7.png")));
+        jButton2.setBackground(Color.red);
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close4.png")));
+        jButton2.setBackground(new Color(0,51,102));
     }//GEN-LAST:event_jButton2MouseExited
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
