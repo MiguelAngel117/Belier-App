@@ -300,7 +300,7 @@ public class JPanelReportSales extends javax.swing.JPanel {
                     
                 }
                 else{
-                    new Service().initNotification("El producto de la venta ya no se encuentra registrado en el sistema.");
+                    new Service().initNotification("El producto de la venta ya no se encuentra registrado en el sistema.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelReportSales.class.getName()).log(Level.SEVERE, null, ex);

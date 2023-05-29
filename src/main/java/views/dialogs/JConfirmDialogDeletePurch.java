@@ -128,7 +128,7 @@ public class JConfirmDialogDeletePurch extends javax.swing.JDialog {
         try {
             if ((pcrud.isExistPurchase(cod))) {
                 if (pcrud.delete(cod)) {
-                    new Service(jFrameMain).initNotification("La compra ha sido eliminada exitosamente.");
+                    new Service(jFrameMain).initNotification("La compra ha sido eliminada exitosamente.",3);
 
                     this.dispose();
 
@@ -172,7 +172,7 @@ public class JConfirmDialogDeletePurch extends javax.swing.JDialog {
                 }
 
             } else {
-                new Service().initNotification("No se ha encontrado ningún producto con el código que ha ingresado.");
+                new Service(jFrameMain).initNotification("No se ha encontrado ningún producto con el código que ha ingresado.",1);
                 this.dispose();
             }
         } catch (SQLException ex) {

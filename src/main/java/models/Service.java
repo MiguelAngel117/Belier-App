@@ -27,8 +27,8 @@ public class Service {
         return now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' yyyy")).toUpperCase();
     }
     
-    public void initNotification(String chain){
-        JNotificationDialog jmd = new JNotificationDialog(jFrameMain, true);
+    public void initNotification(String chain, int type){
+        JNotificationDialog jmd = new JNotificationDialog(jFrameMain, true, type);
         jmd.getjLabel3().setText(chain);
         jmd.setVisible(true);
         

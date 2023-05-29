@@ -130,7 +130,7 @@ public class JConfirmDialogDeleteProductByCode extends javax.swing.JDialog {
         try {
             if((new GarmentCRUD().isExistGarment(cod)) == true){
                 if(gcrud.delete(cod)){
-                    new Service(jFrameMain).initNotification("El producto ha sido eliminado exitosamente.");
+                    new Service(jFrameMain).initNotification("El producto ha sido eliminado exitosamente.",3);
 
                     this.dispose();
 
@@ -150,7 +150,7 @@ public class JConfirmDialogDeleteProductByCode extends javax.swing.JDialog {
 
             }
             else{
-                new Service().initNotification("No se ha encontrado ningún producto con el código que ha ingresado.");
+                new Service(jFrameMain).initNotification("No se ha encontrado ningún producto con el código que ha ingresado.",1);
                 this.dispose();
             }
         } catch (SQLException ex) {

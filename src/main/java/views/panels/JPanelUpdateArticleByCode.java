@@ -395,7 +395,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
             return true;
 
         } catch (NumberFormatException e) {
-            s.initNotification("Por favor, ingrese solo números positivos en el campo de valor de venta.");
+            s.initNotification("Por favor, ingrese solo números positivos en el campo de valor de venta.",2);
             return false;
         }
     }
@@ -467,7 +467,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jTextField2.getText().isEmpty()) {
-            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.");
+            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
         } else {
             jComboBox1.removeAllItems();
             jComboBox2.removeAllItems();
@@ -508,7 +508,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
                     jTextArea1.setLineWrap(true);
                     jTextArea1.setWrapStyleWord(true);
                 } else {
-                    new Service().initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                    new Service().initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -518,7 +518,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (jTextField2.getText().isEmpty()) {
-            new Service().initNotification("Para continuar, se requiere ingresar el código del producto.");
+            new Service().initNotification("Para continuar, se requiere ingresar el código del producto.",2);
         } else {
             try {
                 if (new GarmentCRUD().isExistGarmentUpdate(jTextField2.getText().toUpperCase())) {
@@ -529,7 +529,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
                             jTextField2.getText().toUpperCase(), jpanelMain, this);
                     jcdug.setVisible(true);
                 } else {
-                    new Service().initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                    new Service().initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -548,7 +548,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (jTextField2.getText().isEmpty()) {
-                new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.");
+                new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
             } else {
                 jComboBox1.removeAllItems();
                 jComboBox2.removeAllItems();
@@ -589,7 +589,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
                         jTextArea1.setLineWrap(true);
                         jTextArea1.setWrapStyleWord(true);
                     } else {
-                        new Service().initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                        new Service().initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -603,32 +603,32 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
         TypeCRUD tcrud = new TypeCRUD();
         boolean isValid = false;
         if (jTextField2.getText().isEmpty()) {
-            s.initNotification("Para continuar, se requiere ingresar el código del producto.");
+            s.initNotification("Para continuar, se requiere ingresar el código del producto.",2);
             isValid = false;
         } else if (jTextField2.getText().length() > 500) {
-            s.initNotification("El código del producto excede el límite de caracteres permitido.");
+            s.initNotification("El código del producto excede el límite de caracteres permitido.",2);
             isValid = false;
         } else if (jTextField4.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar el nombre del producto.");
+            s.initNotification("Para continuar, es necesario ingresar el nombre del producto.",2);
             isValid = false;
         } else if (jTextField4.getText().length() > 500) {
-            s.initNotification("El nombre del producto excede el límite de caracteres permitido.");
+            s.initNotification("El nombre del producto excede el límite de caracteres permitido.",2);
             isValid = false;
         } else if (jTextField1.getText().isEmpty()) {
-            s.initNotification("Para continuar, se requiere ingresar el precio de venta del producto.");
+            s.initNotification("Para continuar, se requiere ingresar el precio de venta del producto.",2);
             isValid = false;
         } else if (!getCastBigInteger(s)) {
             isValid = false;
         } else if (jTextArea1.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar la descripción del producto.");
+            s.initNotification("Para continuar, es necesario ingresar la descripción del producto.",2);
             isValid = false;
         } else if (jTextArea1.getText().length() > 500) {
-            s.initNotification("La descripción del producto excede el límite de caracteres permitido.");
+            s.initNotification("La descripción del producto excede el límite de caracteres permitido.",2);
             isValid = false;
         } else try {
             if (!(new GarmentCRUD().isExistGarment(jTextField2.getText().toUpperCase()))) {
                 isValid = false;
-                s.initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                s.initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
             } else {
                 isValid = true;
             }

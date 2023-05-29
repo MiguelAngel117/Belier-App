@@ -4,6 +4,7 @@
  */
 package views.dialogs;
 
+import java.awt.Frame;
 import javax.swing.JLabel;
 
 /**
@@ -15,11 +16,25 @@ public class JNotificationDialog extends javax.swing.JDialog {
     /**
      * Creates new form JNotificationDialog
      */
-    public JNotificationDialog(java.awt.Frame parent, boolean modal) {
+    public JNotificationDialog(java.awt.Frame parent, boolean modal, int type) {
         super(parent, modal);
+        
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(parent);
+        
+        if (type == 1) {
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notii.png")));
+        } else if (type == 2) {
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nn.png")));
+        } else if (type == 3) {
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/na.png")));
+        }
+        pack();
+    }
+
+    public JNotificationDialog() {
+        
     }
 
     /**
@@ -34,7 +49,7 @@ public class JNotificationDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -53,29 +68,27 @@ public class JNotificationDialog extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 100, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 100, 40));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("HOLA MUNDO");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1040, 50));
+        jLabel3.setText("AAAAA AAAAA AAAAA AAAAA AAAAA AAAAA AAAAA AAAAA AAAAA AAAAA AAAAA");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 920, 50));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("NOTIFICACIÓN");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 370, 40));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notii.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 100, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1044, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -115,7 +128,7 @@ public class JNotificationDialog extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JNotificationDialog dialog = new JNotificationDialog(new javax.swing.JFrame(), true);
+                JNotificationDialog dialog = new JNotificationDialog();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -133,7 +146,7 @@ public class JNotificationDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

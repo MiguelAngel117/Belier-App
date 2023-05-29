@@ -558,7 +558,7 @@ public class JPanelUpdateBuy extends javax.swing.JPanel {
                         Integer.parseInt(jComboBox2.getSelectedItem().toString())), jPanelMain);
                 jcdup.setVisible(true);
             } else {
-                s.initNotification("El código de compra ingresado no se encuentra registrado en el sistema.");
+                s.initNotification("El código de compra ingresado no se encuentra registrado en el sistema.",2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPanelUpdateBuy.class.getName()).log(Level.SEVERE, null, ex);

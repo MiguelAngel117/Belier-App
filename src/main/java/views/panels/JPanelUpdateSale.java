@@ -401,7 +401,7 @@ public class JPanelUpdateSale extends javax.swing.JPanel {
                         Integer.parseInt(jComboBox2.getSelectedItem().toString())), jPanelMain);
                 jcdup.setVisible(true);
             } else {
-                s.initNotification("¡ERROR 404 - ESTA COMPRA NO SE ENCUENTRA REGISTRADA!");
+                s.initNotification("¡ERROR 404 - ESTA COMPRA NO SE ENCUENTRA REGISTRADA!",2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPanelUpdateBuy.class.getName()).log(Level.SEVERE, null, ex);

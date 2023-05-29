@@ -411,27 +411,27 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
         TypeCRUD tcrud = new TypeCRUD();
         boolean isValid = false;
         if (jTextField2.getText().isEmpty()) {
-            s.initNotification("Para continuar, se requiere ingresar el código del producto.");
+            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
             isValid = false;
         } else if (jTextField2.getText().length() > 500) {
-            s.initNotification("El código del producto excede el límite de caracteres permitido.");
+            new Service(jFrameMain).initNotification("El código del producto excede el límite de caracteres permitido.",2);
             isValid = false;
         } else if (jTextField4.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar el nombre del producto.");
+            new Service(jFrameMain).initNotification("Para continuar, es necesario ingresar el nombre del producto.",2);
             isValid = false;
         } else if (jTextField4.getText().length() > 500) {
-            s.initNotification("El nombre del producto excede el límite de caracteres permitido.");
+            new Service(jFrameMain).initNotification("El nombre del producto excede el límite de caracteres permitido.",2);
             isValid = false;
         } else if (jTextField1.getText().isEmpty()) {
-            s.initNotification("Para continuar, se requiere ingresar el precio de venta del producto.");
+            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el precio de venta del producto.",2);
             isValid = false;
         } else if (!getCastBigInteger(s)) {
             isValid = false;
         } else if (jTextArea1.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar la descripción del producto.");
+            new Service(jFrameMain).initNotification("Para continuar, es necesario ingresar la descripción del producto.",2);
             isValid = false;
         } else if (jTextArea1.getText().length() > 500) {
-            s.initNotification("La descripción del producto excede el límite de caracteres permitido.");
+            new Service(jFrameMain).initNotification("La descripción del producto excede el límite de caracteres permitido.",2);
             isValid = false;
         } else {
             isValid = true;
@@ -454,7 +454,7 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
                             this);
                     jcd.setVisible(true);
                 } else {
-                    s.initNotification("El código de producto ingresado no es válido. Por favor, ingrese un código diferente.");
+                    s.initNotification("El código de producto ingresado no es válido. Por favor, ingrese un código diferente.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelRegisterArticle.class.getName()).log(Level.SEVERE, null, ex);
@@ -504,7 +504,7 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
             return true;
 
         } catch (NumberFormatException e) {
-            s.initNotification("a");
+            s.initNotification("a",1);
             return false;
         }
     }

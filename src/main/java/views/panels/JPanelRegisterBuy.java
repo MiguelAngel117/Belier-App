@@ -403,8 +403,8 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             new BigInteger(jTextField4.getText());
             return true;
         } catch (NumberFormatException e) {
-            s.initNotification("¡INGRESE UN VALOR DE UNITARIO QUE SOLO CONTENGA NUMEROS!");
-            s.initNotification("¡EL VALOR UNITARIO INGRESADO NO ES VÁLIDO!");
+            s.initNotification("¡INGRESE UN VALOR DE UNITARIO QUE SOLO CONTENGA NUMEROS!",1);
+            s.initNotification("¡EL VALOR UNITARIO INGRESADO NO ES VÁLIDO!",1);
             return false;
         }
     }
@@ -416,7 +416,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             return true;
 
         } catch (NumberFormatException e) {
-            s.initNotification("Por favor, ingrese solo números positivos en el campo de costo unitario.");
+            s.initNotification("Por favor, ingrese solo números positivos en el campo de costo unitario.",1);
             return false;
         }
     }
@@ -428,7 +428,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             return true;
 
         } catch (NumberFormatException e) {
-            s.initNotification("Por favor, ingrese solo números positivos en el campo de cantidad.");
+            s.initNotification("Por favor, ingrese solo números positivos en el campo de cantidad.",1);
             return false;
         }
     }
@@ -480,7 +480,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (jTextField2.getText().isEmpty()) {
-                new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.");
+                new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
             } else {
                 GarmentCRUD gcrud = new GarmentCRUD();
                 Service s = new Service();
@@ -498,7 +498,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
                         jTextField7.setText(garment.getNameType());
                         jTextField2.setText(garment.getCod().toUpperCase());
                     } else {
-                        new Service(jFrameMain).initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                        new Service(jFrameMain).initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -509,7 +509,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jTextField2.getText().isEmpty()) {
-            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.");
+            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",1);
         } else {
             GarmentCRUD gcrud = new GarmentCRUD();
             Service s = new Service();
@@ -527,7 +527,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
                     jTextField7.setText(garment.getNameType());
                     jTextField2.setText(garment.getCod().toUpperCase());
                 } else {
-                    new Service(jFrameMain).initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                    new Service(jFrameMain).initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -541,22 +541,22 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
         boolean isValid = false;
 
         if (jTextField2.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar el código del producto.");
+            s.initNotification("Para continuar, es necesario ingresar el código del producto.",2);
             isValid = false;
         } else if (jTextField4.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar el costo unitario de compra del producto.");
+            s.initNotification("Para continuar, es necesario ingresar el costo unitario de compra del producto.",2);
             isValid = false;
         } else if (!getCastBigIntegerCU(s)) {
             isValid = false;
         } else if (jTextField3.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar la cantidad de compra del producto.");
+            s.initNotification("Para continuar, es necesario ingresar la cantidad de compra del producto.",2);
             isValid = false;
         } else if (!getCastBigIntegerCA(s)) {
             isValid = false;
         } else try {
             if (!gcrud.isExistGarmentUpdate(jTextField2.getText())) {
                 isValid = false;
-                s.initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                s.initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
             } else {
                 isValid = true;
             }
@@ -596,8 +596,8 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             Integer.parseInt(jTextField2.getText());
             return true;
         } catch (NumberFormatException ex) {
-            s.initNotification("¡INGRESE UN ID QUE SOLO CONTENGA NUMEROS!");
-            s.initNotification("¡EL ID INGRESADO NO ES VÁLIDO!");
+            s.initNotification("¡INGRESE UN ID QUE SOLO CONTENGA NUMEROS!",2);
+            s.initNotification("¡EL ID INGRESADO NO ES VÁLIDO!",2);
             return false;
         }
     }

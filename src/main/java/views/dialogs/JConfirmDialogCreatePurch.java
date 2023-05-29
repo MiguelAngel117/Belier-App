@@ -126,7 +126,7 @@ public class JConfirmDialogCreatePurch extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         PurchaseCRUD pcrud = new PurchaseCRUD();
         if(pcrud.create(purchase)){
-            new Service().initNotification("La compra se ha registrado exitosamente.");
+            new Service(jFrameMain).initNotification("La compra se ha registrado exitosamente.", 3);
             this.dispose();
 
             try {

@@ -129,10 +129,10 @@ public class JConfirmDialogUpdatePurch extends javax.swing.JDialog {
         if (pcrud.update(purchase)) {
 
             
-            new Service(jFrameMain).initNotification("El reembolso de la compra se ha realizado exitosamente.");
+            new Service(jFrameMain).initNotification("El reembolso de la compra se ha realizado exitosamente.",3);
             
             try {
-                new Service(jFrameMain).initNotification("El monto a reembolsar es de: " + Integer.parseInt(pcrud.getPurchase(purchase.getId()).getUnitPrice()) * purchase.getRefund());
+                new Service(jFrameMain).initNotification("El monto a reembolsar es de: " + Integer.parseInt(pcrud.getPurchase(purchase.getId()).getUnitPrice()) * purchase.getRefund(),1);
             } catch (SQLException ex) {
                 Logger.getLogger(JConfirmDialogUpdatePurch.class.getName()).log(Level.SEVERE, null, ex);
             }

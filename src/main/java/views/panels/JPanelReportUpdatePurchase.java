@@ -304,11 +304,11 @@ public class JPanelReportUpdatePurchase extends javax.swing.JPanel {
                         }
                     }
                     else{
-                        new Service(jFrameMain).initNotification("Esta compra no tiene unidades disponibles para reembolsar.");
+                        new Service(jFrameMain).initNotification("Esta compra no tiene unidades disponibles para reembolsar.",2);
                     }
                 }
                 else{
-                    new Service(jFrameMain).initNotification("El producto de la compra ya no se encuentra registrado en el sistema.");
+                    new Service(jFrameMain).initNotification("El producto de la compra ya no se encuentra registrado en el sistema.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelReportUpdatePurchase.class.getName()).log(Level.SEVERE, null, ex);

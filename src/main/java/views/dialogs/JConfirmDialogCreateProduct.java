@@ -129,7 +129,7 @@ public class JConfirmDialogCreateProduct extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         GarmentCRUD gcrud = new GarmentCRUD();
         if (gcrud.create(garment, new TypeCRUD())) {
-            JNotificationDialog jmd = new JNotificationDialog(jFrameMain, true);
+            JNotificationDialog jmd = new JNotificationDialog(jFrameMain, true,3);
             jmd.getjLabel3().setText("El registro del producto en el sistema se ha realizado exitosamente.");
             jmd.setVisible(true);
 

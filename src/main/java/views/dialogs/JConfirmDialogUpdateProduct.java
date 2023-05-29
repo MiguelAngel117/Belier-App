@@ -131,7 +131,7 @@ public class JConfirmDialogUpdateProduct extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         GarmentCRUD gcrud = new GarmentCRUD();
         if(gcrud.update(garment)){
-            new Service(jFrameMain).initNotification("La actualización del producto se ha realizado exitosamente.");
+            new Service(jFrameMain).initNotification("La actualización del producto se ha realizado exitosamente.",3);
         }
         this.dispose();
 

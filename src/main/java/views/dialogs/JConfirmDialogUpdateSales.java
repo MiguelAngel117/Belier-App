@@ -129,12 +129,13 @@ public class JConfirmDialogUpdateSales extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         SaleCRUD pcrud = new SaleCRUD();
         if (pcrud.update(sale)) {
+            
+            new Service(jFrameMain).initNotification("El reembolso de la venta se ha realizado con éxito.",3);
             try {
-                new Service(jFrameMain).initNotification("El monto a reembolsar es de: " + Integer.parseInt(pcrud.getSale(sale.getId()).getUnitPrice()) * sale.getRefund());
+                new Service(jFrameMain).initNotification("El monto a reembolsar es de: " + Integer.parseInt(pcrud.getSale(sale.getId()).getUnitPrice()) * sale.getRefund(),1);
             } catch (SQLException ex) {
                 Logger.getLogger(JConfirmDialogUpdatePurch.class.getName()).log(Level.SEVERE, null, ex);
             }
-            new Service(jFrameMain).initNotification("El reembolso de la venta se ha realizado con éxito.");
             this.dispose();
 
             JPanelReportUpdateSale jpus = new JPanelReportUpdateSale(jFrameMain, jPanelMain);

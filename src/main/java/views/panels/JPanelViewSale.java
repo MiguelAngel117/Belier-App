@@ -367,7 +367,7 @@ public class JPanelViewSale extends javax.swing.JPanel {
                 jcdug.setVisible(true);
             }
             else{
-                new Service().initNotification("Error 404 - Esta venta no se encuentra registrada.");
+                new Service().initNotification("Error 404 - Esta venta no se encuentra registrada.",2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);

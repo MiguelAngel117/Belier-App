@@ -125,7 +125,7 @@ public class JConfirmDialogRegisterSale extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         SaleCRUD scrud = new SaleCRUD();
         if(scrud.create(sale)){
-            new Service(jFrameMain).initNotification("La venta se ha realizado exitosamente.");
+            new Service(jFrameMain).initNotification("La venta se ha realizado exitosamente.",3);
             this.dispose();
 
             try {

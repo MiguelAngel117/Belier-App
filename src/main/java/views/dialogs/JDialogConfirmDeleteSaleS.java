@@ -128,7 +128,7 @@ public class JDialogConfirmDeleteSaleS extends javax.swing.JDialog {
         try {
             if ((saleCRUD.isExistSale(cod))) {
                 if (saleCRUD.delete(cod)) {
-                    new Service(jFrameMain).initNotification("La venta ha sido eliminada con éxito.");
+                    new Service(jFrameMain).initNotification("La venta ha sido eliminada con éxito.",3);
 
                     this.dispose();
 
@@ -172,7 +172,7 @@ public class JDialogConfirmDeleteSaleS extends javax.swing.JDialog {
                 }
 
             } else {
-                new Service().initNotification("No se ha encontrado ningún producto con el código que ha ingresado.");
+                new Service(jFrameMain).initNotification("No se ha encontrado ningún producto con el código que ha ingresado.",1);
                 this.dispose();
             }
         } catch (SQLException ex) {

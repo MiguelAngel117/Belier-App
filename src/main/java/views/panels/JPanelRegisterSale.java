@@ -339,8 +339,8 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
             new BigInteger(jTextField4.getText());
             return true;
         } catch (NumberFormatException e) {
-            s.initNotification("¡INGRESE UN VALOR DE UNITARIO QUE SOLO CONTENGA NUMEROS!");
-            s.initNotification("¡EL VALOR UNITARIO INGRESADO NO ES VÁLIDO!");
+            s.initNotification("¡INGRESE UN VALOR DE UNITARIO QUE SOLO CONTENGA NUMEROS!",1);
+            s.initNotification("¡EL VALOR UNITARIO INGRESADO NO ES VÁLIDO!",1);
             return false;
         }
     }
@@ -402,7 +402,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jTextField2.getText().isEmpty()) {
-            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.");
+            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
         } else {
             GarmentCRUD gcrud = new GarmentCRUD();
             Service s = new Service();
@@ -427,10 +427,10 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                             jComboBox1.addItem(String.valueOf(i));
                         }
                     } else {
-                        new Service().initNotification("Este producto no cuenta con unidades disponibles para la venta.");
+                        new Service().initNotification("Este producto no cuenta con unidades disponibles para la venta.",2);
                     }
                 } else {
-                    new Service().initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                    new Service().initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -441,7 +441,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (jTextField2.getText().isEmpty()) {
-                new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.");
+                new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
             } else {
                 GarmentCRUD gcrud = new GarmentCRUD();
                 Service s = new Service();
@@ -466,10 +466,10 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                                 jComboBox1.addItem(String.valueOf(i));
                             }
                         } else {
-                            new Service().initNotification("Este producto no cuenta con unidades disponibles para la venta.");
+                            new Service().initNotification("Este producto no cuenta con unidades disponibles para la venta.",2);
                         }
                     } else {
-                        new Service().initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.");
+                        new Service().initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -483,7 +483,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
         Service s = new Service(jFrameMain);
         try {
             if (jTextField2.getText().isEmpty()) {
-                s.initNotification("Para continuar, es necesario ingresar el código del producto.");
+                s.initNotification("Para continuar, es necesario ingresar el código del producto.",2);
             } else {
                 if (gcrud.isExistGarment(jTextField2.getText())) {
                     JConfirmDialogRegisterSale jcdcs = new JConfirmDialogRegisterSale(
@@ -494,7 +494,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                             jTextField1.getText()), this);
                     jcdcs.setVisible(true);
                 } else {
-                    s.initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO ESTA REGISTRADO EN EL SISTEMA.");
+                    s.initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO ESTA REGISTRADO EN EL SISTEMA.",2);
                 }
             }
         } catch (SQLException ex) {
