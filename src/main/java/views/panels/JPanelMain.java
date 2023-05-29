@@ -95,7 +95,7 @@ public class JPanelMain extends javax.swing.JPanel {
         jButtonArticles.setFont(new java.awt.Font("Tahoma", 0, 19)); // NOI18N
         jButtonArticles.setForeground(new java.awt.Color(255, 255, 255));
         jButtonArticles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agregar.png"))); // NOI18N
-        jButtonArticles.setText("   Artículos");
+        jButtonArticles.setText("   Productos");
         jButtonArticles.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 25, 1, 1, new java.awt.Color(0, 0, 0)));
         jButtonArticles.setBorderPainted(false);
         jButtonArticles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -394,7 +394,7 @@ public class JPanelMain extends javax.swing.JPanel {
                     revalidate();
                     repaint();
                 }
-                case "   Artículos" -> {
+                case "   Productos" -> {
                     jButtonArticles.setBackground(new Color(176,75,0));
                     jButtonMain.setBackground(new Color(255,102,0));
                     jButtonBuy.setBackground(new Color(255,102,0));

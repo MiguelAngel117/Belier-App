@@ -39,12 +39,11 @@ public class JPanelOptionMain extends javax.swing.JPanel {
 
         jLabelTittle.setBackground(new java.awt.Color(51, 51, 51));
         jLabelTittle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabelTittle.setForeground(new java.awt.Color(244, 225, 208));
+        jLabelTittle.setForeground(new java.awt.Color(51, 51, 51));
         jLabelTittle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTittle.setText("BIENVENIDO AL SISTEMA DE INFORMACIÓN");
         jLabelTittle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabelTittle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabelTittle.setOpaque(true);
 
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
         jPanelBackground.setLayout(jPanelBackgroundLayout);
