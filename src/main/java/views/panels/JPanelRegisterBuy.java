@@ -483,7 +483,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
                 new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
             } else {
                 GarmentCRUD gcrud = new GarmentCRUD();
-                Service s = new Service();
+                Service s = new Service(jFrameMain);
                 Garment garment = null;
 
                 try {
@@ -512,7 +512,7 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
             new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",1);
         } else {
             GarmentCRUD gcrud = new GarmentCRUD();
-            Service s = new Service();
+            Service s = new Service(jFrameMain);
             Garment garment = null;
 
             try {

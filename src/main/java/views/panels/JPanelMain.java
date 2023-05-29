@@ -27,7 +27,7 @@ public class JPanelMain extends javax.swing.JPanel {
     
     
     public void initPanels(){
-        jLabelDate.setText(new Service().getDate());
+        jLabelDate.setText(new Service(frameMain).getDate());
         initPanel(new JPanelOptionMain());
     }
     

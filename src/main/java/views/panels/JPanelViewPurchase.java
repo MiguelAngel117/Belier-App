@@ -357,7 +357,7 @@ public class JPanelViewPurchase extends javax.swing.JPanel {
                         (Integer.parseInt(jTextField6.getText())), jPanelMain);
                 jcdug.setVisible(true);
             } else {
-                new Service().initNotification("Error 404 - Esta compra no se encuentra registrado.",2);
+                new Service(jFrameMain).initNotification("Error 404 - Esta compra no se encuentra registrado.",2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);

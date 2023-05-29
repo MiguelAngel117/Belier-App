@@ -234,7 +234,7 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
             jpua.getjComboBox1().addItem("UNISEX");
 
             GarmentCRUD gcrud = new GarmentCRUD();
-            Service s = new Service();
+            Service s = new Service(jFrameMain);
             Garment garment = null;
             try {
                 garment = gcrud.getGarment(value);

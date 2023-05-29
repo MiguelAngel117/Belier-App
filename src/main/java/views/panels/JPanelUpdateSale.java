@@ -385,7 +385,7 @@ public class JPanelUpdateSale extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SaleCRUD pcrud = new SaleCRUD();
-        Service s = new Service();
+        Service s = new Service(jFrameMain);
 
         try {
             Sale sale = pcrud.getSale(Integer.parseInt(jTextField14.getText()));

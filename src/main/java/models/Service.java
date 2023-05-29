@@ -17,9 +17,6 @@ public class Service {
     public Service(JFrameMain jFrameMain) {
         this.jFrameMain = jFrameMain;
     }
-
-    public Service() {
-    }
     
     public String getDate(){
         LocalDate now = LocalDate.now();

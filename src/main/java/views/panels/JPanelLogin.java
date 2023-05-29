@@ -58,6 +58,7 @@ public class JPanelLogin extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabelDesc1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanel2 = new backgroundPanel();
         jPanel3 = new backgroundPanel();
 
@@ -174,6 +175,15 @@ public class JPanelLogin extends javax.swing.JPanel {
             }
         });
 
+        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox1.setText("Mostrar contraseña.");
+        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -186,22 +196,23 @@ public class JPanelLogin extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jSeparator3)
-                        .addComponent(jSeparator4)
                         .addComponent(jTextFieldNombreUsuario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                         .addComponent(jLabelUser1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabelPassword1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPasswordFieldContraseña1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelDesc1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabelDesc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator4))
                     .addComponent(jLabelIniciar1))
                 .addContainerGap(109, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +234,9 @@ public class JPanelLogin extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jCheckBox1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelDesc1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
@@ -274,7 +287,7 @@ public class JPanelLogin extends javax.swing.JPanel {
         );
         jPanelBackgroundLayout.setVerticalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -297,19 +310,19 @@ public class JPanelLogin extends javax.swing.JPanel {
         boolean isValid = false;
         if (jTextFieldNombreUsuario1.getText().length() == 0) {
             isValid = false;
-            jLabelDesc1.setText(" Ingrese un usuario.");
+            jLabelDesc1.setText(" Ingrese un usuario. ");
             jLabelDesc1.setVisible(true);
         } else if (jPasswordFieldContraseña1.getText().length() == 0) {
             isValid = false;
-            jLabelDesc1.setText(" Ingrese una contraseña.");
+            jLabelDesc1.setText(" Ingrese una contraseña. ");
             jLabelDesc1.setVisible(true);
         } else if (!jTextFieldNombreUsuario1.getText().toUpperCase().equals(user)) {
             isValid = false;
-            jLabelDesc1.setText(" Usuario ingresado incorrecto.");
+            jLabelDesc1.setText(" Usuario incorrecto. ");
             jLabelDesc1.setVisible(true);
         } else if (!jPasswordFieldContraseña1.getText().equals(password)) {
             isValid = false;
-            jLabelDesc1.setText(" Contraseña incorrecta.");
+            jLabelDesc1.setText(" Contraseña incorrecta. ");
             jLabelDesc1.setVisible(true);
         } else {
             jLabelDesc1.setVisible(false);
@@ -355,19 +368,19 @@ public class JPanelLogin extends javax.swing.JPanel {
             boolean isValid = false;
             if (jTextFieldNombreUsuario1.getText().length() == 0) {
                 isValid = false;
-                jLabelDesc1.setText(" Ingrese un usuario.");
+                jLabelDesc1.setText(" Ingrese un usuario. ");
                 jLabelDesc1.setVisible(true);
             } else if (jPasswordFieldContraseña1.getText().length() == 0) {
                 isValid = false;
-                jLabelDesc1.setText(" Ingrese una contraseña.");
+                jLabelDesc1.setText(" Ingrese una contraseña. ");
                 jLabelDesc1.setVisible(true);
             } else if (!jTextFieldNombreUsuario1.getText().toUpperCase().equals(user)) {
                 isValid = false;
-                jLabelDesc1.setText(" Usuario ingresado incorrecto.");
+                jLabelDesc1.setText(" Usuario incorrecto. ");
                 jLabelDesc1.setVisible(true);
             } else if (!jPasswordFieldContraseña1.getText().toUpperCase().equals(password)) {
                 isValid = false;
-                jLabelDesc1.setText(" Contraseña incorrecta.");
+                jLabelDesc1.setText(" Contraseña incorrecta. ");
                 jLabelDesc1.setVisible(true);
             } else {
                 jLabelDesc1.setVisible(false);
@@ -397,19 +410,19 @@ public class JPanelLogin extends javax.swing.JPanel {
             boolean isValid = false;
             if (jTextFieldNombreUsuario1.getText().length() == 0) {
                 isValid = false;
-                jLabelDesc1.setText(" Ingrese un usuario.");
+                jLabelDesc1.setText(" Ingrese un usuario. ");
                 jLabelDesc1.setVisible(true);
             } else if (jPasswordFieldContraseña1.getText().length() == 0) {
                 isValid = false;
-                jLabelDesc1.setText(" Ingrese una contraseña.");
+                jLabelDesc1.setText(" Ingrese una contraseña. ");
                 jLabelDesc1.setVisible(true);
             }else if (!jTextFieldNombreUsuario1.getText().toUpperCase().equals(user)) {
                 isValid = false;
-                jLabelDesc1.setText(" Usuario ingresado incorrecto.");
+                jLabelDesc1.setText(" Usuario incorrecto. ");
                 jLabelDesc1.setVisible(true);
             }  else if (!jPasswordFieldContraseña1.getText().equals(password)) {
                 isValid = false;
-                jLabelDesc1.setText(" Contraseña incorrecta.");
+                jLabelDesc1.setText(" Contraseña incorrecta. ");
                 jLabelDesc1.setVisible(true);
             } else {
                 jLabelDesc1.setVisible(false);
@@ -447,11 +460,17 @@ public class JPanelLogin extends javax.swing.JPanel {
         new JConfirmDialogCloseProgram(frameMain).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        
+        jPasswordFieldContraseña1.setEchoChar(jCheckBox1.isSelected() ? '\u0000' : '•');
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabelLogo1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabelDesc1;
     private javax.swing.JLabel jLabelIniciar1;
     private javax.swing.JLabel jLabelPassword1;

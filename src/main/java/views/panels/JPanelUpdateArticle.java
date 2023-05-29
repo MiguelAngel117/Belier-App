@@ -367,7 +367,7 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
             return true;
 
         } catch (NumberFormatException e) {
-            s.initNotification("Por favor, ingrese solo números positivos en el campo de valor de venta.",2);
+            s.initNotification("Por favor, ingrese solo números positivos en el campo de valor de venta.", 2);
             return false;
         }
     }
@@ -466,14 +466,23 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             if (new GarmentCRUD().isExistGarmentUpdate(jTextField2.getText().toUpperCase())) {
-                JConfirmDialogDeleteProduct jcdug = null;
-                jcdug = new JConfirmDialogDeleteProduct(
-                        jFrameMain,
-                        jFrameMain, true,
-                        jTextField2.getText().toUpperCase(), jpanelMain);
-                jcdug.setVisible(true);
+                if (new GarmentCRUD().isExistProductInPurchases(jTextField2.getText().toUpperCase()) && 
+                        new GarmentCRUD().isExistProductInSales(jTextField2.getText().toUpperCase())) {
+                    JConfirmDialogDeleteProduct jcdug = null;
+                    jcdug = new JConfirmDialogDeleteProduct(
+                            jFrameMain,
+                            jFrameMain, true,
+                            jTextField2.getText().toUpperCase(), jpanelMain);
+                    jcdug.setVisible(true);
+                }
+                if(!new GarmentCRUD().isExistProductInPurchases(jTextField2.getText().toUpperCase())){
+                    new Service(jFrameMain).initNotification("No es posible eliminar este producto debido a que se han registrado compras relacionadas con el mismo.", 2);
+                }
+                if(!new GarmentCRUD().isExistProductInSales(jTextField2.getText().toUpperCase())){
+                    new Service(jFrameMain).initNotification("No es posible eliminar este producto debido a que se han registrado ventas relacionadas con el mismo.", 2);
+                }
             } else {
-                new Service().initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
+                new Service(jFrameMain).initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.", 2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -493,32 +502,32 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
         TypeCRUD tcrud = new TypeCRUD();
         boolean isValid = false;
         if (jTextField2.getText().isEmpty()) {
-            s.initNotification("Para continuar, se requiere ingresar el código del producto.",2);
+            s.initNotification("Para continuar, se requiere ingresar el código del producto.", 2);
             isValid = false;
         } else if (jTextField2.getText().length() > 500) {
-            s.initNotification("El código del producto excede el límite de caracteres permitido.",2);
+            s.initNotification("El código del producto excede el límite de caracteres permitido.", 2);
             isValid = false;
         } else if (jTextField4.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar el nombre del producto.",2);
+            s.initNotification("Para continuar, es necesario ingresar el nombre del producto.", 2);
             isValid = false;
         } else if (jTextField4.getText().length() > 500) {
-            s.initNotification("El nombre del producto excede el límite de caracteres permitido.",2);
+            s.initNotification("El nombre del producto excede el límite de caracteres permitido.", 2);
             isValid = false;
         } else if (jTextField1.getText().isEmpty()) {
-            s.initNotification("Para continuar, se requiere ingresar el precio de venta del producto.",2);
+            s.initNotification("Para continuar, se requiere ingresar el precio de venta del producto.", 2);
             isValid = false;
         } else if (!getCastBigInteger(s)) {
             isValid = false;
         } else if (jTextArea1.getText().isEmpty()) {
-            s.initNotification("Para continuar, es necesario ingresar la descripción del producto.",2);
+            s.initNotification("Para continuar, es necesario ingresar la descripción del producto.", 2);
             isValid = false;
         } else if (jTextArea1.getText().length() > 500) {
-            s.initNotification("La descripción del producto excede el límite de caracteres permitido.",2);
+            s.initNotification("La descripción del producto excede el límite de caracteres permitido.", 2);
             isValid = false;
         } else try {
             if (!(new GarmentCRUD().isExistGarment(jTextField2.getText().toUpperCase()))) {
                 isValid = false;
-                s.initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
+                s.initNotification("EL CÓDIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.", 2);
             } else {
                 isValid = true;
             }
@@ -538,24 +547,23 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
             jcd.setVisible(true);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-    
-    public void showIsEmpty(JTextField jTextField){
-        if(jTextField.getText().isEmpty()){
-            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-        }
-        else{
+
+    public void showIsEmpty(JTextField jTextField) {
+        if (jTextField.getText().isEmpty()) {
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255, 102, 0), 2));
+        } else {
             jTextField.setBorder(null);
         }
     }
-    public void showIsEmptyJA(JTextArea jTextField){
-        if(jTextField.getText().isEmpty()){
-            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-        }
-        else{
+
+    public void showIsEmptyJA(JTextArea jTextField) {
+        if (jTextField.getText().isEmpty()) {
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255, 102, 0), 2));
+        } else {
             jTextField.setBorder(null);
         }
     }
-    
+
     private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
         showIsEmpty(jTextField1);
         showIsEmpty(jTextField4);

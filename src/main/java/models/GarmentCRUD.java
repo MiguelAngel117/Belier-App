@@ -204,6 +204,42 @@ public class GarmentCRUD extends Conexion {
             throw e;
         }
     }
+    
+    public boolean isExistProductInPurchases(String id) throws SQLException {
+        String sql = "SELECT NOT EXISTS (SELECT * FROM PURCHASES WHERE COD_GARMENT = ?);";
+        try (Connection con = getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setObject(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    return count == 1;
+                }
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+            throw e;
+        }
+    }
+    
+    public boolean isExistProductInSales(String id) throws SQLException {
+        String sql = "SELECT NOT EXISTS (SELECT * FROM SALES WHERE COD_GARMENT = ?);";
+        try (Connection con = getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setObject(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    return count == 1;
+                }
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+            throw e;
+        }
+    }
 
     public Garment getGarment(String idGarment) throws SQLException {
         String sql = "SELECT G.*, NAME_TYPE FROM GARMENTS G "

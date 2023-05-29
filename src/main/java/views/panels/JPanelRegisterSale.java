@@ -405,7 +405,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
             new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
         } else {
             GarmentCRUD gcrud = new GarmentCRUD();
-            Service s = new Service();
+            Service s = new Service(jFrameMain);
             Garment garment = null;
 
             try {
@@ -427,10 +427,10 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                             jComboBox1.addItem(String.valueOf(i));
                         }
                     } else {
-                        new Service().initNotification("Este producto no cuenta con unidades disponibles para la venta.",2);
+                        new Service(jFrameMain).initNotification("Este producto no cuenta con unidades disponibles para la venta.",2);
                     }
                 } else {
-                    new Service().initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
+                    new Service(jFrameMain).initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
@@ -444,7 +444,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                 new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
             } else {
                 GarmentCRUD gcrud = new GarmentCRUD();
-                Service s = new Service();
+                Service s = new Service(jFrameMain);
                 Garment garment = null;
 
                 try {
@@ -466,10 +466,10 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                                 jComboBox1.addItem(String.valueOf(i));
                             }
                         } else {
-                            new Service().initNotification("Este producto no cuenta con unidades disponibles para la venta.",2);
+                            new Service(jFrameMain).initNotification("Este producto no cuenta con unidades disponibles para la venta.",2);
                         }
                     } else {
-                        new Service().initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
+                        new Service(jFrameMain).initNotification("EL CODIGO DEL PRODUCTO INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA.",2);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(JPanelUpdateArticleByCode.class.getName()).log(Level.SEVERE, null, ex);
