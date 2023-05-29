@@ -34,7 +34,7 @@ public class JFrameMain extends javax.swing.JFrame {
         this.setBackground(new Color(244, 225, 208));
         initLogin();
     }
-        
+
     public void initLogin() {
         JPanelLogin jPanelLogin = new JPanelLogin(this);
         jPanelLogin.setLocation(0, 0);
@@ -53,8 +53,6 @@ public class JFrameMain extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -63,6 +61,11 @@ public class JFrameMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,6 +80,12 @@ public class JFrameMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.isAltDown() && evt.getKeyCode() == KeyEvent.VK_F4) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
