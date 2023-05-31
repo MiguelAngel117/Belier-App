@@ -38,6 +38,7 @@ public class JPanelReportPurchases extends javax.swing.JPanel {
         jTable1.setShowGrid(true);
         jTable1.setGridColor(java.awt.Color.GRAY);
         jTable1.setDefaultRenderer(Object.class, renderer);
+        formatTable();
         jTextField2.setText(getInversion());
     }
 
@@ -261,8 +262,9 @@ public class JPanelReportPurchases extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jTextField1KeyPressed
 
-    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
-        ArrayList<Purchase> purchases = new ArrayList<>();
+   
+   public void formatTable(){
+       ArrayList<Purchase> purchases = new ArrayList<>();
         try {
             if(!jTextField1.getText().isEmpty()){
                 purchases = new PurchaseCRUD().searchPurchases(jTextField1.getText().toUpperCase());
@@ -299,8 +301,10 @@ public class JPanelReportPurchases extends javax.swing.JPanel {
             row[6] = purchase.getComentaries();
             defaultTableModel.addRow(row);
         }
-        
         jTable1.setModel(defaultTableModel);
+   }
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        formatTable();
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
