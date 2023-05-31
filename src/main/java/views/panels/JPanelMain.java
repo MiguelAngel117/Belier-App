@@ -403,7 +403,7 @@ public class JPanelMain extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        File file = new File("src/main/resources/Manual.pdf");
+        File file = new File("src/main/resources/ManualSI.pdf");
         if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();
             if (file.exists()) {
