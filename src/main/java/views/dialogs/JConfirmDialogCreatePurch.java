@@ -154,7 +154,7 @@ public class JConfirmDialogCreatePurch extends javax.swing.JDialog {
                 Logger.getLogger(JConfirmDialogUpdateProductByCode.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            jPanelRegisterBuy.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+            jPanelRegisterBuy.getjTextField9().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

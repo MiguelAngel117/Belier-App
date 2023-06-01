@@ -215,13 +215,14 @@ public class JPanelSale extends javax.swing.JPanel {
 
     private void jToggleButtonRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRegister1ActionPerformed
         
-        JPanelRegisterSale jprs = new JPanelRegisterSale(jFrameMain,jPanelMain);
-        jPanelMain.initPanel(jprs);
+        JPanelRegisterSale jprs = null;
         try {
-            jprs.getjTextField6().setText(String.valueOf(new SaleCRUD().getNextId()));
+            jprs = new JPanelRegisterSale(jFrameMain,jPanelMain);
         } catch (SQLException ex) {
             Logger.getLogger(JPanelSale.class.getName()).log(Level.SEVERE, null, ex);
         }
+        jPanelMain.initPanel(jprs);
+        
         
     }//GEN-LAST:event_jToggleButtonRegister1ActionPerformed
 

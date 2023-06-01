@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import models.GarmentCRUD;
 import models.Sale;
 import models.SaleCRUD;
 import models.Service;
@@ -128,20 +130,29 @@ public class JConfirmDialogRegisterSale extends javax.swing.JDialog {
             new Service(jFrameMain).initNotification("La venta se ha realizado exitosamente.",3);
             this.dispose();
 
-            try {
-                jPanelRegisterSale.getjTextField6().setText(String.valueOf(scrud.getNextId()));
-            } catch (SQLException ex) {
-                Logger.getLogger(JPanelBuy.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            jPanelRegisterSale.getjTextField1().setText("");
+            jPanelRegisterSale.getjTextField9().setText("");
             jPanelRegisterSale.getjTextField2().setText("");
-            jPanelRegisterSale.getjTextField8().setText("");
             jPanelRegisterSale.getjTextField5().setText("");
-            jPanelRegisterSale.getjTextField4().setText("");
             jPanelRegisterSale.getjTextField7().setText("");
+            jPanelRegisterSale.getjTextField4().setText("0");
             jPanelRegisterSale.getjComboBox1().removeAllItems();
+            jPanelRegisterSale.getjTextField1().setText("");
             
-            jPanelRegisterSale.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+
+            try {
+                jPanelRegisterSale.setGarments(new GarmentCRUD().getGarments());
+                DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+                for (int i = 0; i < jPanelRegisterSale.getGarments().size(); i++) {
+                    model.addElement(jPanelRegisterSale.getGarments().get(i).getName());
+                }
+
+                jPanelRegisterSale.getjComboBox3().setModel(model);
+                jPanelRegisterSale.getjComboBox3().setSelectedIndex(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(JConfirmDialogUpdateProductByCode.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            jPanelRegisterSale.getjTextField9().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
 
         }
 
