@@ -537,7 +537,7 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                     jTextField5.setText(get.getSex());
                     jTextField4.setText(get.getPriceSale());
                     jComboBox1.removeAllItems();
-                    for (int j = 1; j < Integer.parseInt(get.getStock()); j++) {
+                    for (int j = 1; j <= Integer.parseInt(get.getStock()); j++) {
                         jComboBox1.addItem(String.valueOf(j));
                     }
                     if(jComboBox1.getModel().getElementAt(0) != null){
