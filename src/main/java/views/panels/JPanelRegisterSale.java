@@ -188,6 +188,11 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox1MouseClicked(evt);
@@ -531,13 +536,21 @@ public class JPanelRegisterSale extends javax.swing.JPanel {
                     jTextField7.setText(get.getNameType());
                     jTextField5.setText(get.getSex());
                     jTextField4.setText(get.getPriceSale());
+                    jComboBox1.removeAllItems();
                     for (int j = 1; j < Integer.parseInt(get.getStock()); j++) {
                         jComboBox1.addItem(String.valueOf(j));
+                    }
+                    if(jComboBox1.getModel().getElementAt(0) != null){
+                        jComboBox1.setSelectedIndex(0);
                     }
                 }
             }
         }
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        calculate();
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     public JLabel getjLabel1() {
         return jLabel1;
