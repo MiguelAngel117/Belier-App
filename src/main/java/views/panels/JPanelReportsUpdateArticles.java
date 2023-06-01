@@ -3,6 +3,7 @@ package views.panels;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -199,6 +200,10 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
         jToggleButtonBack.setBackground(new Color(97, 136, 176));
     }//GEN-LAST:event_jToggleButtonBackMouseExited
 
+    public String formatPesos(String num){
+        DecimalFormat formatoPesos = new DecimalFormat("$###,###");
+        return formatoPesos.format(Double.parseDouble(num));
+    }
     private void jToggleButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonBackActionPerformed
         JPanelReports jPanelReports = new JPanelReports(jFrameMain, jpanelMain);
         jPanelReports.setLocation(0, 0);
@@ -296,8 +301,8 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
             row[2] = garment.getName();
             row[3] = garment.getDescription();
             row[4] = garment.getSex();
-            row[5] = garment.getPricePurchase();
-            row[6] = garment.getPriceSale();
+            row[5] = formatPesos(garment.getPricePurchase());
+            row[6] = formatPesos(garment.getPriceSale());
             row[7] = garment.getStock();
             defaultTableModel.addRow(row);
         }

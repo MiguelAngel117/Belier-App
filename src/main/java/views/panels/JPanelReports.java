@@ -2,6 +2,7 @@ package views.panels;
 
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +30,11 @@ public class JPanelReports extends javax.swing.JPanel {
         this.jPanelMain = jPanelMain;
         initComponents();
     }
-
+    
+    public String formatPesos(String num){
+        DecimalFormat formatoPesos = new DecimalFormat("$###,###");
+        return formatoPesos.format(Double.parseDouble(num));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -192,9 +197,9 @@ public class JPanelReports extends javax.swing.JPanel {
             row[0] = purchase.getId();
             row[1] = purchase.getGarments();
             row[2] = purchase.getDateTime();
-            row[3] = purchase.getUnitPrice();
+            row[3] = formatPesos(purchase.getUnitPrice());
             row[4] = purchase.getQuantity();
-            row[5] = purchase.getTotal();
+            row[5] = formatPesos(purchase.getTotal());
             row[6] = purchase.getComentaries();
             defaultTableModel.addRow(row);
         }
@@ -226,7 +231,7 @@ public class JPanelReports extends javax.swing.JPanel {
         defaultTableModel.addColumn("SEXO");
         defaultTableModel.addColumn("PRECIO DE COMPRA");
         defaultTableModel.addColumn("PRECIO DE VENTA");
-        defaultTableModel.addColumn("STOCK");
+        defaultTableModel.addColumn("CANTIDAD");
 
         for (Garment garment : garments) {
             Object[] row = new Object[8];
@@ -235,12 +240,11 @@ public class JPanelReports extends javax.swing.JPanel {
             row[2] = garment.getName();
             row[3] = garment.getDescription();
             row[4] = garment.getSex();
-            row[5] = garment.getPricePurchase();
-            row[6] = garment.getPriceSale();
+            row[5] = formatPesos(garment.getPricePurchase());
+            row[6] = formatPesos(garment.getPriceSale());
             row[7] = garment.getStock();
             defaultTableModel.addRow(row);
         }
-        
         jpra.getjTable1().setModel(defaultTableModel);
     }//GEN-LAST:event_jToggleButtonProductsActionPerformed
 
@@ -274,9 +278,9 @@ public class JPanelReports extends javax.swing.JPanel {
             row[0] = sale.getId();
             row[1] = sale.getGarments();
             row[2] = sale.getDateTime();
-            row[3] = sale.getUnitPrice();
+            row[3] = formatPesos(sale.getUnitPrice());
             row[4] = sale.getQuantity();
-            row[5] = sale.getTotal();
+            row[5] = formatPesos(sale.getTotal());
             row[6] = sale.getComentaries();
             defaultTableModel.addRow(row);
         }

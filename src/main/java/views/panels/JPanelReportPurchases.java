@@ -295,7 +295,7 @@ public class JPanelReportPurchases extends javax.swing.JPanel {
             row[0] = purchase.getId();
             row[1] = purchase.getGarments();
             row[2] = purchase.getDateTime();
-            row[3] = purchase.getUnitPrice();
+            row[3] = formatPesos(purchase.getUnitPrice());
             row[4] = purchase.getQuantity();
             row[5] = formatPesos(purchase.getTotal()).toString();
             row[6] = purchase.getComentaries();

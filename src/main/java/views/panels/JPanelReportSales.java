@@ -58,7 +58,7 @@ public class JPanelReportSales extends javax.swing.JPanel {
     
     public String formatPesos(String num){
         DecimalFormat formatoPesos = new DecimalFormat("$###,###");
-        return formatoPesos.format(Double.parseDouble(num.toString()));
+        return formatoPesos.format(Double.parseDouble(num));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -290,9 +290,9 @@ public class JPanelReportSales extends javax.swing.JPanel {
             row[0] = sale.getId();
             row[1] = sale.getGarments();
             row[2] = sale.getDateTime();
-            row[3] = sale.getUnitPrice();
+            row[3] = formatPesos(sale.getUnitPrice());
             row[4] = sale.getQuantity();
-            row[5] = sale.getTotal();
+            row[5] = formatPesos(sale.getTotal());
             row[6] = sale.getComentaries();
             defaultTableModel.addRow(row);
         }

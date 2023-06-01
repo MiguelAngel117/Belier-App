@@ -2,6 +2,7 @@ package views.panels;
 
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -164,7 +165,10 @@ public class JPanelBuy extends javax.swing.JPanel {
     private void jToggleButtonUpdate1jButtonUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonUpdate1jButtonUpdateMouseExited
         jToggleButtonUpdate1.setBackground(new Color(54,125,86));
     }//GEN-LAST:event_jToggleButtonUpdate1jButtonUpdateMouseExited
-
+    public String formatPesos(String num){
+        DecimalFormat formatoPesos = new DecimalFormat("$###,###");
+        return formatoPesos.format(Double.parseDouble(num));
+    }
     private void jToggleButtonUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdate1ActionPerformed
         JPanelReportUpdatePurchase jpus = new JPanelReportUpdatePurchase(jFrameMain,jPanelMain);
         jPanelMain.initPanel(jpus);
@@ -195,9 +199,9 @@ public class JPanelBuy extends javax.swing.JPanel {
             row[0] = purchase.getId();
             row[1] = purchase.getGarments();
             row[2] = purchase.getDateTime();
-            row[3] = purchase.getUnitPrice();
+            row[3] = formatPesos(purchase.getUnitPrice());
             row[4] = purchase.getQuantity();
-            row[5] = purchase.getTotal();
+            row[5] = formatPesos(purchase.getTotal());
             row[6] = purchase.getComentaries();
             defaultTableModel.addRow(row);
         }

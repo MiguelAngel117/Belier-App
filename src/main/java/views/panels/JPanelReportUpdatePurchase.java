@@ -3,6 +3,7 @@ package views.panels;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -247,16 +248,21 @@ public class JPanelReportUpdatePurchase extends javax.swing.JPanel {
             row[0] = purchase.getId();
             row[1] = purchase.getGarments();
             row[2] = purchase.getDateTime();
-            row[3] = purchase.getUnitPrice();
+            row[3] = formatPesos(purchase.getUnitPrice());
             row[4] = purchase.getQuantity();
-            row[5] = purchase.getTotal();
+            row[5] = formatPesos(purchase.getTotal());
             row[6] = purchase.getComentaries();
             defaultTableModel.addRow(row);
         }
         
         jTable1.setModel(defaultTableModel);
     }//GEN-LAST:event_jTextField1KeyReleased
-
+    
+    public String formatPesos(String num){
+        DecimalFormat formatoPesos = new DecimalFormat("$###,###");
+        return formatoPesos.format(Double.parseDouble(num));
+    }
+    
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
 
     }//GEN-LAST:event_jTextField1KeyTyped
