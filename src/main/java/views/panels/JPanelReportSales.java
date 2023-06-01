@@ -164,7 +164,7 @@ public class JPanelReportSales extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Venta Total:");
+        jLabel1.setText("Total Ventas:");
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -277,7 +277,7 @@ public class JPanelReportSales extends javax.swing.JPanel {
                 return false;
             }
         };
-        defaultTableModel.addColumn("CODIGO");
+       
         defaultTableModel.addColumn("PRODUCTO");
         defaultTableModel.addColumn("FECHA");
         defaultTableModel.addColumn("PRECIO UNITARIO");
@@ -286,7 +286,7 @@ public class JPanelReportSales extends javax.swing.JPanel {
         defaultTableModel.addColumn("COMENTARIOS");
 
         for (Sale sale : sales) {
-            Object[] row = new Object[7];
+            Object[] row = new Object[6];
             row[0] = sale.getId();
             row[1] = sale.getGarments();
             row[2] = sale.getDateTime();
