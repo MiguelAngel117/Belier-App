@@ -388,13 +388,13 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
+    }//GEN-LAST:event_jTextField1ActionPerformed
+    
     public void showIsEmpty(JTextField jTextField) {
         if (jTextField.getText().isEmpty()) {
             jTextField.setBorder(BorderFactory.createLineBorder(new Color(255, 102, 0), 2));
