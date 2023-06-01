@@ -287,7 +287,7 @@ public class JPanelReportsUpdateArticles extends javax.swing.JPanel {
         defaultTableModel.addColumn("SEXO");
         defaultTableModel.addColumn("PRECIO DE COMPRA");
         defaultTableModel.addColumn("PRECIO DE VENTA");
-        defaultTableModel.addColumn("STOCK");
+        defaultTableModel.addColumn("CANTIDAD");
 
         for (Garment garment : garments) {
             Object[] row = new Object[8];

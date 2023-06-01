@@ -386,8 +386,6 @@ public class JPanelRegisterBuy extends javax.swing.JPanel {
         showIsEmpty(jTextField3);
         showIsEmpty(jTextField4);
         calculate();
-
-
     }//GEN-LAST:event_jTextField4KeyReleased
 
     private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed

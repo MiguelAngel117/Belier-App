@@ -72,6 +72,8 @@ public class JPanelMain extends javax.swing.JPanel {
         jLabelTittle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         backgroundPanel.setBackground(new java.awt.Color(255, 102, 0));
 
@@ -295,6 +297,8 @@ public class JPanelMain extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setToolTipText("");
+
         javax.swing.GroupLayout jPanelContentLayout = new javax.swing.GroupLayout(jPanelContent);
         jPanelContent.setLayout(jPanelContentLayout);
         jPanelContentLayout.setHorizontalGroup(
@@ -305,10 +309,14 @@ public class JPanelMain extends javax.swing.JPanel {
                     .addComponent(jLabelTittle, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentLayout.createSequentialGroup()
-                .addGap(314, 314, 314)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(313, 313, 313))
+            .addGroup(jPanelContentLayout.createSequentialGroup()
+                .addGap(279, 279, 279)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addGap(284, 284, 284))
         );
         jPanelContentLayout.setVerticalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,9 +325,12 @@ public class JPanelMain extends javax.swing.JPanel {
                 .addComponent(jLabelTittle, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1)
-                .addGap(51, 51, 51))
+                .addGap(27, 27, 27)
+                .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
@@ -480,7 +491,9 @@ public class JPanelMain extends javax.swing.JPanel {
     private javax.swing.JButton jButtonMain;
     private javax.swing.JButton jButtonReport;
     private javax.swing.JButton jButtonSale;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelDate;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTittle;
@@ -490,6 +503,4 @@ public class JPanelMain extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     private JFrameMain frameMain;
     private Service service;
-
-    
 }
