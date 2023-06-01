@@ -236,6 +236,7 @@ public class JPanelUpdateArticleByCode extends javax.swing.JPanel {
         jLabel8.setText("Nombre");
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField4.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField4KeyReleased(evt);

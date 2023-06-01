@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import models.GarmentCRUD;
 import models.Purchase;
 import models.PurchaseCRUD;
 import models.Service;
@@ -129,18 +131,28 @@ public class JConfirmDialogCreatePurch extends javax.swing.JDialog {
             new Service(jFrameMain).initNotification("La compra se ha registrado exitosamente.", 3);
             this.dispose();
 
-            try {
-                jPanelRegisterBuy.getjTextField6().setText(String.valueOf(pcrud.getNextId()));
-            } catch (SQLException ex) {
-                Logger.getLogger(JPanelBuy.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            jPanelRegisterBuy.getjTextField1().setText("");
+            
+            jPanelRegisterBuy.getjTextField9().setText("");
             jPanelRegisterBuy.getjTextField2().setText("");
-            jPanelRegisterBuy.getjTextField3().setText("0");
-            jPanelRegisterBuy.getjTextField4().setText("0");
             jPanelRegisterBuy.getjTextField5().setText("");
             jPanelRegisterBuy.getjTextField7().setText("");
-            jPanelRegisterBuy.getjTextField8().setText("");
+            jPanelRegisterBuy.getjTextField4().setText("0");
+            jPanelRegisterBuy.getjTextField3().setText("0");
+            jPanelRegisterBuy.getjTextField1().setText("");
+            
+
+            try {
+                jPanelRegisterBuy.setGarments(new GarmentCRUD().getGarments());
+                DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+                for (int i = 0; i < jPanelRegisterBuy.getGarments().size(); i++) {
+                    model.addElement(jPanelRegisterBuy.getGarments().get(i).getName());
+                }
+
+                jPanelRegisterBuy.getjComboBox3().setModel(model);
+                jPanelRegisterBuy.getjComboBox3().setSelectedIndex(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(JConfirmDialogUpdateProductByCode.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             jPanelRegisterBuy.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         }
