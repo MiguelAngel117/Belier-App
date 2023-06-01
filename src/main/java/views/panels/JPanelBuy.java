@@ -148,14 +148,14 @@ public class JPanelBuy extends javax.swing.JPanel {
     }//GEN-LAST:event_jToggleButtonRegister1jButtonRegisterEvenListenerMouseExited
 
     private void jToggleButtonRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRegister1ActionPerformed
-        JPanelRegisterBuy jprb = new JPanelRegisterBuy(jFrameMain,jPanelMain);
-        jPanelMain.initPanel(jprb);
-        
+        JPanelRegisterBuy jprb = null;
         try {
-            jprb.getjTextField6().setText(String.valueOf(new PurchaseCRUD().getNextId()));
+            jprb = new JPanelRegisterBuy(jFrameMain,jPanelMain);
         } catch (SQLException ex) {
             Logger.getLogger(JPanelBuy.class.getName()).log(Level.SEVERE, null, ex);
         }
+        jPanelMain.initPanel(jprb);
+        
     }//GEN-LAST:event_jToggleButtonRegister1ActionPerformed
 
     private void jToggleButtonUpdate1jButtonUpdateEvenListenerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonUpdate1jButtonUpdateEvenListenerMouseEntered
