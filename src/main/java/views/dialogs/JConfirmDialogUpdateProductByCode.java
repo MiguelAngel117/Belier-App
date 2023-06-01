@@ -6,7 +6,11 @@ package views.dialogs;
 
 import java.awt.Color;
 import java.awt.Frame;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import models.Garment;
 import models.GarmentCRUD;
 import models.Service;
@@ -19,21 +23,22 @@ import views.panels.JPanelUpdateArticleByCode;
  * @author edwin
  */
 public class JConfirmDialogUpdateProductByCode extends javax.swing.JDialog {
-    
+
     private JFrameMain jFrameMain;
     private Garment garment;
     private JPanelMain jpanelMain;
     private JPanelUpdateArticleByCode jPanelUpdateArticleByCode;
+
     /**
      * Creates new form JConfirmDialogUpdateProductByCode
      */
-    public JConfirmDialogUpdateProductByCode(JFrameMain jFrameMain, java.awt.Frame parent, boolean modal, 
+    public JConfirmDialogUpdateProductByCode(JFrameMain jFrameMain, java.awt.Frame parent, boolean modal,
             Garment garment, JPanelUpdateArticleByCode jPanelUpdateArticleByCode) {
         super(parent, modal);
         this.jFrameMain = jFrameMain;
         this.setUndecorated(true);
         initComponents();
-        
+
         this.jPanelUpdateArticleByCode = jPanelUpdateArticleByCode;
         this.setLocationRelativeTo(parent);
         this.garment = garment;
@@ -42,8 +47,6 @@ public class JConfirmDialogUpdateProductByCode extends javax.swing.JDialog {
     public JConfirmDialogUpdateProductByCode(Frame owner, boolean modal) {
         super(owner, modal);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,21 +127,32 @@ public class JConfirmDialogUpdateProductByCode extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         GarmentCRUD gcrud = new GarmentCRUD();
-        if(gcrud.update(garment)){
-            new Service(jFrameMain).initNotification("La actualización del producto se ha realizado exitosamente.",3);
+        if (gcrud.update(garment)) {
+            new Service(jFrameMain).initNotification("La actualización del producto se ha realizado exitosamente.", 3);
             this.dispose();
 
-            jPanelUpdateArticleByCode.getjComboBox1().removeAllItems();
-            jPanelUpdateArticleByCode.getjComboBox2().removeAllItems();
             jPanelUpdateArticleByCode.getjTextField1().setText("0");
-            jPanelUpdateArticleByCode.getjTextField2().setText("");
-            jPanelUpdateArticleByCode.getjTextField3().setText("0");
             jPanelUpdateArticleByCode.getjTextField4().setText("");
+            jPanelUpdateArticleByCode.getjTextField6().setText("");
+            jPanelUpdateArticleByCode.getjTextField5().setText("");
+            jPanelUpdateArticleByCode.getjTextField2().setText("");
+            jPanelUpdateArticleByCode.getjTextField3().setText("");
             jPanelUpdateArticleByCode.getjTextArea1().setText("");
-            
-            jPanelUpdateArticleByCode.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-            jPanelUpdateArticleByCode.getjTextField4().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-            jPanelUpdateArticleByCode.getjTextArea1().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+            jPanelUpdateArticleByCode.getjComboBox3().setSelectedIndex(0);
+
+            try {
+                jPanelUpdateArticleByCode.setGarments(new GarmentCRUD().getGarments());
+                DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+                for (int i = 0; i < jPanelUpdateArticleByCode.getGarments().size(); i++) {
+                    model.addElement(jPanelUpdateArticleByCode.getGarments().get(i).getName());
+                }
+
+                jPanelUpdateArticleByCode.getjComboBox3().setModel(model);
+                jPanelUpdateArticleByCode.getjComboBox3().setSelectedIndex(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(JConfirmDialogUpdateProductByCode.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

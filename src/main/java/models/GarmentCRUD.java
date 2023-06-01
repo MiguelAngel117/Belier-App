@@ -18,20 +18,21 @@ public class GarmentCRUD extends Conexion {
 
     public boolean create(Garment garm, TypeCRUD typeCRUD) {
         String sql = "INSERT INTO GARMENTS ("
-                + "COD_GARMENT, COD_TYPE, NAME_GARMENT, DESCRIPTION_GARMENT, SEX_GARMENT, "
+                + "COD_GARMENT, COD_UNIQUE, COD_TYPE, NAME_GARMENT, DESCRIPTION_GARMENT, SEX_GARMENT, "
                 + "PRICE_PURCHASE_GARMENT, PRICE_SALE_GARMENT, STOCK_GARMENT, STATUS_GARMENT)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try (Connection con = getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, garm.getCod());
-            ps.setInt(2, typeCRUD.getIdType(garm.getNameType()));
-            ps.setString(3, garm.getName());
-            ps.setString(4, garm.getDescription());
-            ps.setString(5, garm.getSex());
-            ps.setString(6, "0");
-            ps.setString(7, garm.getPriceSale());
-            ps.setString(8, "0");
-            ps.setBoolean(9, true);
+            ps.setInt(2, getCodNext());
+            ps.setInt(3, typeCRUD.getIdType(garm.getNameType()));
+            ps.setString(4, garm.getName());
+            ps.setString(5, garm.getDescription());
+            ps.setString(6, garm.getSex());
+            ps.setString(7, "0");
+            ps.setString(8, garm.getPriceSale());
+            ps.setString(9, "0");
+            ps.setBoolean(10, true);
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -74,14 +75,11 @@ public class GarmentCRUD extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE GARMENTS SET "
-                + "STATUS_GARMENT=? "
-                + "WHERE COD_GARMENT=?;";
+        String sql = "DELETE FROM GARMENTS WHERE COD_GARMENT=?;";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setBoolean(1, false);
-            ps.setString(2, cod);
+            ps.setString(1, cod);
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -187,6 +185,24 @@ public class GarmentCRUD extends Conexion {
         }
     }
     
+    public boolean isExistName(String name) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM GARMENTS WHERE NAME_GARMENT = ?;";
+        try (Connection con = getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setObject(1, name);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    return count > 0;
+                }
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+            throw e;
+        }
+    }
+    
     public boolean isExistGarmentUpdate(String id) throws SQLException {
         String sql = "SELECT COUNT(*) FROM GARMENTS WHERE COD_GARMENT = ? AND STATUS_GARMENT = TRUE;";
         try (Connection con = getConexion();
@@ -271,6 +287,37 @@ public class GarmentCRUD extends Conexion {
         }
         return null;
     }
+    
+    public int getCodNext() throws SQLException {
+    String sql = "SELECT MAX(COD_UNIQUE) AS MAX_COD_UNIQUE FROM GARMENTS;";
+        
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    Connection con = getConexion();
+    try {
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt("MAX_COD_UNIQUE") + 1;
+        }
+    } catch (SQLException ex) {
+        throw new SQLException("Error al obtener el siguiente código único en la tabla GARMENTS.", ex);
+    } finally {
+        if(rs == null){
+            return 1;
+        }
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        if (con != null) {
+            con.close();
+        }
+    }
+    return 0;
+}
     
     public String getStock(String id) throws SQLException{
         String sql = "SELECT STOCK_GARMENT FROM GARMENTS WHERE COD_GARMENT=? AND STATUS_GARMENT = TRUE;";

@@ -140,7 +140,6 @@ public class JConfirmDialogCreateProduct extends javax.swing.JDialog {
             jPanelRegisterArticle.getjTextField1().setText("0");
             jPanelRegisterArticle.getjTextField4().setText("");
             
-            jPanelRegisterArticle.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
             jPanelRegisterArticle.getjTextField4().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
             jPanelRegisterArticle.getjTextArea1().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         }

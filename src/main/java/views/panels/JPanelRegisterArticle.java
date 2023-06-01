@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.math.BigInteger;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -147,8 +148,8 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
             }
         });
 
+        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField2.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
         jTextField2.setMaximumSize(new java.awt.Dimension(64, 28));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,9 +164,19 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -358,7 +369,7 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
         showIsEmpty(jTextField2);
         showIsEmpty(jTextField4);
         showIsEmptyJA(jTextArea1);
-        
+
         if (!jTextField1.getText().isEmpty()) {
             try {
                 new BigInteger(jTextField1.getText());
@@ -383,58 +394,64 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-    
-    public void showIsEmpty(JTextField jTextField){
-        if(jTextField.getText().isEmpty()){
-            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-        }
-        else{
+
+    public void showIsEmpty(JTextField jTextField) {
+        if (jTextField.getText().isEmpty()) {
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255, 102, 0), 2));
+        } else {
             jTextField.setBorder(null);
         }
     }
-    public void showIsEmptyJA(JTextArea jTextField){
-        if(jTextField.getText().isEmpty()){
-            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-        }
-        else{
+
+    public void showIsEmptyJA(JTextArea jTextField) {
+        if (jTextField.getText().isEmpty()) {
+            jTextField.setBorder(BorderFactory.createLineBorder(new Color(255, 102, 0), 2));
+        } else {
             jTextField.setBorder(null);
         }
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         showIsEmpty(jTextField1);
-        showIsEmpty(jTextField2);
         showIsEmpty(jTextField4);
         showIsEmptyJA(jTextArea1);
-        
+
         Service s = new Service(jFrameMain);
         TypeCRUD tcrud = new TypeCRUD();
         boolean isValid = false;
         if (jTextField2.getText().isEmpty()) {
-            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.",2);
+            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el código del producto.", 2);
             isValid = false;
         } else if (jTextField2.getText().length() > 500) {
-            new Service(jFrameMain).initNotification("El código del producto excede el límite de caracteres permitido.",2);
+            new Service(jFrameMain).initNotification("El código del producto excede el límite de caracteres permitido.", 2);
             isValid = false;
         } else if (jTextField4.getText().isEmpty()) {
-            new Service(jFrameMain).initNotification("Para continuar, es necesario ingresar el nombre del producto.",2);
+            new Service(jFrameMain).initNotification("Para continuar, es necesario ingresar el nombre del producto.", 2);
             isValid = false;
         } else if (jTextField4.getText().length() > 500) {
-            new Service(jFrameMain).initNotification("El nombre del producto excede el límite de caracteres permitido.",2);
+            new Service(jFrameMain).initNotification("El nombre del producto excede el límite de caracteres permitido.", 2);
             isValid = false;
         } else if (jTextField1.getText().isEmpty()) {
-            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el precio de venta del producto.",2);
+            new Service(jFrameMain).initNotification("Para continuar, se requiere ingresar el precio de venta del producto.", 2);
             isValid = false;
         } else if (!getCastBigInteger(s)) {
             isValid = false;
         } else if (jTextArea1.getText().isEmpty()) {
-            new Service(jFrameMain).initNotification("Para continuar, es necesario ingresar la descripción del producto.",2);
+            new Service(jFrameMain).initNotification("Para continuar, es necesario ingresar la descripción del producto.", 2);
             isValid = false;
         } else if (jTextArea1.getText().length() > 500) {
-            new Service(jFrameMain).initNotification("La descripción del producto excede el límite de caracteres permitido.",2);
+            new Service(jFrameMain).initNotification("La descripción del producto excede el límite de caracteres permitido.", 2);
             isValid = false;
-        } else {
-            isValid = true;
+        } 
+        else try {
+            if (new GarmentCRUD().isExistName(jTextField4.getText().toUpperCase())) {
+                new Service(jFrameMain).initNotification("Este nombre del producto ya esta registrado en el sistema, por favor ingrese uno diferente.", 2);
+                isValid = false;
+            }else {
+                isValid = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JPanelRegisterArticle.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (isValid) {
             try {
@@ -454,7 +471,7 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
                             this);
                     jcd.setVisible(true);
                 } else {
-                    s.initNotification("El código de producto ingresado no es válido. Por favor, ingrese un código diferente.",2);
+                    s.initNotification("El código de producto ingresado no es válido. Por favor, ingrese un código diferente.", 2);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(JPanelRegisterArticle.class.getName()).log(Level.SEVERE, null, ex);
@@ -490,6 +507,28 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
         showIsEmptyJA(jTextArea1);
     }//GEN-LAST:event_jTextArea1KeyReleased
 
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        try {
+            jTextField2.setText(String.valueOf(jComboBox2.getSelectedIndex()) + String.valueOf(jComboBox1.getSelectedIndex())
+                    + String.valueOf(new GarmentCRUD().getCodNext()));
+        } catch (SQLException ex) {
+            Logger.getLogger(JPanelRegisterArticle.class.getName()).log(Level.SEVERE, null, ex);
+            jTextField2.setText(String.valueOf(jComboBox2.getSelectedIndex()) + String.valueOf(jComboBox1.getSelectedIndex())
+                    + String.valueOf(1));
+        }
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        try {
+            jTextField2.setText(String.valueOf(jComboBox2.getSelectedIndex()) + String.valueOf(jComboBox1.getSelectedIndex())
+                    + String.valueOf(new GarmentCRUD().getCodNext()));
+        } catch (SQLException ex) {
+            Logger.getLogger(JPanelRegisterArticle.class.getName()).log(Level.SEVERE, null, ex);
+            jTextField2.setText(String.valueOf(jComboBox2.getSelectedIndex()) + String.valueOf(jComboBox1.getSelectedIndex())
+                    + String.valueOf(1));
+        }
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
     public JLabel getjLabelDesc1() {
         return jLabelDesc1;
     }
@@ -504,7 +543,7 @@ public class JPanelRegisterArticle extends javax.swing.JPanel {
             return true;
 
         } catch (NumberFormatException e) {
-            s.initNotification("a",1);
+            s.initNotification("a", 1);
             return false;
         }
     }

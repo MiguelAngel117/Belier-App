@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import models.GarmentCRUD;
 import models.Service;
 import views.JFrameMain;
@@ -21,17 +22,17 @@ import views.panels.JPanelUpdateArticleByCode;
  * @author edwin
  */
 public class JConfirmDialogDeleteProductByCode extends javax.swing.JDialog {
-    
+
     private JFrameMain jFrameMain;
     private String cod;
     private JPanelMain jpanelMain;
     private JPanelUpdateArticleByCode jPanelUpdateArticleByCode;
-    
+
     /**
      * Creates new form JConfirmDialogDeleteProductByCode
      */
     public JConfirmDialogDeleteProductByCode(JFrameMain jFrameMain,
-            java.awt.Frame parent, boolean modal, String cod, JPanelMain jpanelMain, 
+            java.awt.Frame parent, boolean modal, String cod, JPanelMain jpanelMain,
             JPanelUpdateArticleByCode jPanelUpdateArticleByCode) {
         super(parent, modal);
         this.jFrameMain = jFrameMain;
@@ -46,8 +47,7 @@ public class JConfirmDialogDeleteProductByCode extends javax.swing.JDialog {
     public JConfirmDialogDeleteProductByCode(Frame owner, boolean modal) {
         super(owner, modal);
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,29 +128,37 @@ public class JConfirmDialogDeleteProductByCode extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         GarmentCRUD gcrud = new GarmentCRUD();
         try {
-            if((new GarmentCRUD().isExistGarment(cod)) == true){
-                if(gcrud.delete(cod)){
-                    new Service(jFrameMain).initNotification("El producto ha sido eliminado exitosamente.",3);
+            if ((new GarmentCRUD().isExistGarment(cod)) == true) {
+                if (gcrud.delete(cod)) {
+                    new Service(jFrameMain).initNotification("El producto ha sido eliminado exitosamente.", 3);
 
                     this.dispose();
 
-                    jPanelUpdateArticleByCode.getjComboBox1().removeAllItems();
-                    jPanelUpdateArticleByCode.getjComboBox2().removeAllItems();
                     jPanelUpdateArticleByCode.getjTextField1().setText("0");
-                    jPanelUpdateArticleByCode.getjTextField2().setText("");
-                    jPanelUpdateArticleByCode.getjTextField3().setText("0");
                     jPanelUpdateArticleByCode.getjTextField4().setText("");
+                    jPanelUpdateArticleByCode.getjTextField6().setText("");
+                    jPanelUpdateArticleByCode.getjTextField5().setText("");
+                    jPanelUpdateArticleByCode.getjTextField2().setText("");
+                    jPanelUpdateArticleByCode.getjTextField3().setText("");
                     jPanelUpdateArticleByCode.getjTextArea1().setText("");
-                    
-                    jPanelUpdateArticleByCode.getjTextField2().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-                    jPanelUpdateArticleByCode.getjTextField4().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
-                    jPanelUpdateArticleByCode.getjTextArea1().setBorder(BorderFactory.createLineBorder(new Color(255,102,0), 2));
+                    jPanelUpdateArticleByCode.getjComboBox3().setSelectedIndex(0);
 
+                    try {
+                        jPanelUpdateArticleByCode.setGarments(new GarmentCRUD().getGarments());
+                        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+                        for (int i = 0; i < jPanelUpdateArticleByCode.getGarments().size(); i++) {
+                            model.addElement(jPanelUpdateArticleByCode.getGarments().get(i).getName());
+                        }
+
+                        jPanelUpdateArticleByCode.getjComboBox3().setModel(model);
+                        jPanelUpdateArticleByCode.getjComboBox3().setSelectedIndex(0);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(JConfirmDialogUpdateProductByCode.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
-            }
-            else{
-                new Service(jFrameMain).initNotification("No se ha encontrado ningún producto con el código que ha ingresado.",1);
+            } else {
+                new Service(jFrameMain).initNotification("No se ha encontrado ningún producto con el código que ha ingresado.", 1);
                 this.dispose();
             }
         } catch (SQLException ex) {

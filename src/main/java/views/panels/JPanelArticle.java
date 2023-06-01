@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.GarmentCRUD;
+import models.Service;
 import models.Type;
 import models.TypeCRUD;
 import views.JFrameMain;
@@ -14,8 +16,9 @@ import views.JFrameMain;
  * @author USER
  */
 public class JPanelArticle extends javax.swing.JPanel {
-    
+
     private JFrameMain jFrameMain;
+
     /**
      * Creates new form JPanelArticle
      */
@@ -134,18 +137,32 @@ public class JPanelArticle extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdateActionPerformed
-        
-        JPanelUpdateArticleByCode jpra = new JPanelUpdateArticleByCode(jFrameMain,jPanelMain);
-        jPanelMain.initPanel(jpra);
-        
+        try {
+            if (new GarmentCRUD().getQuantity() > 0) {
+                JPanelUpdateArticleByCode jpra = null;
+                try {
+                    jpra = new JPanelUpdateArticleByCode(jFrameMain, jPanelMain);
+                } catch (SQLException ex) {
+                    Logger.getLogger(JPanelArticle.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                jPanelMain.initPanel(jpra);
+            }
+            else{
+                new Service(jFrameMain).initNotification("No hay productos registrados para modificar.", 2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JPanelArticle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_jToggleButtonUpdateActionPerformed
 
     private void jButtonUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUpdateMouseExited
-        jToggleButtonUpdate.setBackground(new Color(54,125,86));
+        jToggleButtonUpdate.setBackground(new Color(54, 125, 86));
     }//GEN-LAST:event_jButtonUpdateMouseExited
 
     private void jButtonUpdateEvenListenerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUpdateEvenListenerMouseEntered
-        jToggleButtonUpdate.setBackground(new Color(68,95,59));
+        jToggleButtonUpdate.setBackground(new Color(68, 95, 59));
     }//GEN-LAST:event_jButtonUpdateEvenListenerMouseEntered
 
     private void jToggleButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRegisterActionPerformed
@@ -159,7 +176,7 @@ public class JPanelArticle extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(JPanelArticle.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(int i = 0; i < types.size(); i++) {
+        for (int i = 0; i < types.size(); i++) {
             jpra.getjComboBox2().addItem(types.get(i).getName());
         }
 
@@ -170,11 +187,11 @@ public class JPanelArticle extends javax.swing.JPanel {
     }//GEN-LAST:event_jToggleButtonRegisterActionPerformed
 
     private void jButtonRegisterEvenListenerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterEvenListenerMouseExited
-        jToggleButtonRegister.setBackground(new Color(255,51,0));
+        jToggleButtonRegister.setBackground(new Color(255, 51, 0));
     }//GEN-LAST:event_jButtonRegisterEvenListenerMouseExited
 
     private void jButtonRegisterEvenListenerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterEvenListenerMouseEntered
-        jToggleButtonRegister.setBackground(new Color(175,51,0));
+        jToggleButtonRegister.setBackground(new Color(175, 51, 0));
     }//GEN-LAST:event_jButtonRegisterEvenListenerMouseEntered
 
 
