@@ -50,6 +50,8 @@ public class JPanelUpdateArticle extends javax.swing.JPanel {
         this.jpanelMain = jpanelMain;
         initComponents();
         jLabelDesc1.setVisible(false);
+        jComboBox1.setEnabled(false);
+        jComboBox2.setEnabled(false);
 
         AbstractDocument document = (AbstractDocument) jTextField1.getDocument();
         document.setDocumentFilter(new DocumentFilter() {
